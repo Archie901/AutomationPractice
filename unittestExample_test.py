@@ -20,6 +20,7 @@ class PythonOrgSearch(unittest.TestCase):
         self.assertNotIn("No results found.", driver.page_source)
     def tearDown(self):
         self.driver.close()
+        self.driver.close()
 
 if __name__ == "__main__":
     unittest.main()
