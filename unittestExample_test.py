@@ -1,4 +1,3 @@
-import test2
 import time
 import unittest
 from selenium import webdriver
