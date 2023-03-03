@@ -21,7 +21,7 @@ class SearchTest(unittest.TestCase):
         print("Found " + str(len(products)) + " products:")
         for product in products:
             print(product.text)
-        self.assertEqual(6, len(products))
+        self.assertEqual(6, len(products), '332433222222222222222222')
     
     def test_something_new(self):
         sorting1 = self.driver.find_element(By.XPATH, "//select//option[@value='lohi']").click()
