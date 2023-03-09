@@ -2,7 +2,7 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        ".",
+        "./GundechaProject",
         "-p",
         "*test*.py"
     ],
