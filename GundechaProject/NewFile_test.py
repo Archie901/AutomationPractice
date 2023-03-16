@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 # create a new Firefox session
-driver = webdriver.Firefox()
+'''driver = webdriver.Firefox()
 
 driver.maximize_window()
 
@@ -27,4 +27,4 @@ print("Found " + str(len(products)) + " products:")
 for product in products:
     print(product.text)
 
-driver.quit()
+driver.quit()'''
