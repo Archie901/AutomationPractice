@@ -6275,6 +6275,7 @@ JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error:
 JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+<<<<<<< HEAD
 1678486714860	geckodriver	INFO	Listening on 127.0.0.1:50774
 1678486717945	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50775" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\overk\\AppData\\Local\\Temp\\rust_mozprofileIKRG5P"
 console.warn: services.settings: Ignoring preference override of remote settings server
@@ -9738,6 +9739,23 @@ DevTools listening on ws://127.0.0.1:52236/devtools/browser/9e51d428-3d7a-400a-9
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
 1679056232716	Marionette	INFO	Stopped listening on port 52247
+=======
+1679232937242	geckodriver	INFO	Listening on 127.0.0.1:51319
+1679232940301	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51320" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\overk\\AppData\\Local\\Temp\\rust_mozprofileqvTMbi"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679232940696	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1679232940702	Marionette	INFO	Listening on port 51331
+Read port: 51331
+WebDriver BiDi listening on ws://127.0.0.1:51320
+1679232940865	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\overk\\AppData\\Local\\Temp\\rust_mozprofileqvTMbi\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51320/devtools/browser/a1cdf83a-4b72-43c6-a10d-596bc5e7b66a
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
+1679232944061	Marionette	INFO	Stopped listening on port 51331
+>>>>>>> main
 Dynamically enable window occlusion 1
 WARNING: A blocker encountered an error while we were waiting.
           Blocker:  Waiting for ping task
