@@ -16,6 +16,7 @@ class SearchTest(unittest.TestCase):
         inputPass = self.driver.find_element(By.ID, "password").send_keys("secret_sauce")
         btnLogin = self.driver.find_element(By.ID, "login-button").click()
         products = self.driver.find_elements(By.CLASS_NAME, "inventory_item_name")
+        print(type(products))
         print("Found " + str(len(products)) + " products:")
         for product in products:
             print(product.text)
