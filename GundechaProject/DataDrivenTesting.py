@@ -5,22 +5,22 @@ from ddt import ddt, data, unpack
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-'''def get_dataCSV(filename):
+def get_dataCSV(filename):
     rows = []
     datafile = open(filename, "r")
     reader = csv.reader(datafile)
     next(reader, None)
     for row in reader:
         rows.append(row)
-    return rows'''
+    return rows
 
-def get_dataEXCEL(filename):
+'''def get_dataEXCEL(filename):
     rows = []
     book = xlrd.open_workbook(filename)
     sheet = book.sheet_by_index(0)
     for row_idx in range(1, sheet.nrows):
         rows.append(list(sheet.row_values(row_idx, 0, sheet.ncols)))
-    return rows
+    return rows'''
 
 @ddt
 class UsingDDT(unittest.TestCase):
@@ -55,7 +55,7 @@ class UsingDDT(unittest.TestCase):
         #self.assertAlmostEqual
         self.assertGreaterEqual(expected_count, len(products), "not greater or equal")'''
     
-    '''@data(*get_data("GundechaProject\DataDDT.csv"))
+    @data(*get_dataCSV("GundechaProject\DataDDT.csv"))
     @unpack
     def test3_searchWith_CSV_File(self, search_value, expected_count):
         search_box = self.driver.find_element(By.XPATH, "//input[@type='search' and @class='Dm7py']")
@@ -70,9 +70,9 @@ class UsingDDT(unittest.TestCase):
             self.assertGreaterEqual(len(products), expected_count, "not greater or equal")
         else:
             msg = self.driver.find_element(By.XPATH, "//span[contains(text(), 'назву товару по-іншому')]")
-            self.assertEqual("Спробуйте написати назву товару по-іншому, скоротити запит або перейдіть в категорію", msg.text)'''
+            self.assertEqual("Спробуйте написати назву товару по-іншому, скоротити запит або перейдіть в категорію", msg.text)
 
-    @data(*get_dataEXCEL("GundechaProject\DataDDT.xls"))
+    '''@data(*get_dataEXCEL("GundechaProject\DataDDT.xls"))
     @unpack
     def test3_searchWith_XLS_File(self, search_value, expected_count):
         search_box = self.driver.find_element(By.XPATH, "//input[@type='search' and @class='Dm7py']")
@@ -87,7 +87,7 @@ class UsingDDT(unittest.TestCase):
             self.assertGreaterEqual(len(products), expected_count, "not greater or equal")
         else:
             msg = self.driver.find_element(By.XPATH, "//span[contains(text(), 'назву товару по-іншому')]")
-            self.assertEqual("Спробуйте написати назву товару по-іншому, скоротити запит або перейдіть в категорію", msg.text)
+            self.assertEqual("Спробуйте написати назву товару по-іншому, скоротити запит або перейдіть в категорію", msg.text)'''
 
     def tearDown(self):
         self.driver.quit()
