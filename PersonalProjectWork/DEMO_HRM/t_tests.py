@@ -37,10 +37,10 @@ class Testing(unittest.TestCase):
 
     @data(*TT_tesdata.get_dataCSV(TT_tesdata.data_file))
     @unpack
-    def test2_CRUD(self, firstname, middlename, lastname, changedfirstname, drivernum):
+    def test2_creating(self, firstname, middlename, lastname, changedfirstname, drivernum):
 
         #Creating a new employee
-
+        time.sleep(2)
         main_driver = P_main(self.driver)
         main_driver.PIM_sidebar_locator().click()
         time.sleep(2)
@@ -70,10 +70,17 @@ class Testing(unittest.TestCase):
         self.assertEqual(firstname+" "+middlename, created_emp_inList.text)
         time.sleep(2)
 
+    @data(*TT_tesdata.get_dataCSV(TT_tesdata.data_file))
+    @unpack
+    def test3_opening_and_editing(self, firstname, middlename, lastname, changedfirstname, drivernum):
+
         #Opening created employee and editing information + adding new information
 
+        main_driver = P_main(self.driver)
+        created_emp_inList = main_driver.created_employee_inList_locator(firstname, middlename)
         created_emp_inList.click()
         time.sleep(2)
+        profile_driver = P_profile(self.driver)
         input_firstName = profile_driver.profile_input_firstName_locator()
         input_firstName.send_keys(changedfirstname)
         input_drivernum = profile_driver.profile_input_driverNum_locator()
@@ -87,14 +94,20 @@ class Testing(unittest.TestCase):
         profile_text = profile_driver.profile_header_locator().text
         print("Employee first+last name after changing: " + profile_text)
         self.assertEqual(firstname+changedfirstname+" "+lastname, profile_text)
+        main_driver = P_main(self.driver)
         main_driver.PIM_sidebar_locator().click()
         updated_emp_inList = main_driver.updated_employee_inList_locator(firstname, middlename, changedfirstname)
         updated_emp_inList_text = updated_emp_inList.text
         print("Employee first+middle name in list after changing: " + updated_emp_inList_text)
         self.assertEqual(firstname+changedfirstname+" "+middlename, updated_emp_inList_text)
 
+    @data(*TT_tesdata.get_dataCSV(TT_tesdata.data_file))
+    @unpack
+    def test4_deleting(self, firstname, middlename, lastname, changedfirstname, drivernum):
+
         #Deleting already saved/edited employees from the list
 
+        main_driver = P_main(self.driver)
         main_driver.PIM_sidebar_locator().click()
         time.sleep(2)
         delete_icon = main_driver.employee_delete_icon_locator(firstname, middlename, changedfirstname)
