@@ -66,7 +66,7 @@ def deleteallbooks():
 
 login()
 userinfo()
-#onebookinfo()
+onebookinfo()
 #addonebook()
 #deleteallbooks()
 #userinfo()

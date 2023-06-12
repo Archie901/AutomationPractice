@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 class HRMtesting(unittest.TestCase):
     def setUp(self):
         global driver
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Firefox()
         driver = self.driver
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         time.sleep(2)
