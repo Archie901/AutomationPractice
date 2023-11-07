@@ -2,11 +2,15 @@ import time
 from selenium import webdriver
 
 
-qr_id1 = 'FFWATS9Z'
+qr_id1 = '8HQS6UR6'
 
-qr_id2 = 'KF2P98ZB'
+qr_id2 = 'LMF24NHS'
 
-iterations = 30
+qr_id3 = 'H1JDGC4A'
+
+qr_id4 = 'JJZXVUZD'
+
+iterations = 2
 
 driver = webdriver.Firefox()
 
