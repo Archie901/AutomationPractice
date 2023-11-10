@@ -1,24 +1,28 @@
 import time
+import random
 from selenium import webdriver
 
 
-qr_id1 = '8HQS6UR6'
+domain = "https://dev.trueqrcode.com/qr/"
 
-qr_id2 = 'LMF24NHS'
+qr_ids = ["8Q42EABK", "8JRQR839", "LMF24NHS"]
 
-qr_id3 = 'H1JDGC4A'
+#qr_id1 = 
 
-qr_id4 = 'JJZXVUZD'
+def randomizer(x):
+    return random.choice(x)
 
-iterations = 2
+iterations = 10
 
 driver = webdriver.Firefox()
 
 count = 0
 while True:
+    randomQR_id = randomizer(qr_ids)
+    print(randomQR_id)
     count += 1
-    driver.get("https://trueqrcode-dev.osdb.io/qr/" + qr_id1)
-    time.sleep(6)
+    driver.get(domain + randomQR_id)
+    time.sleep(5)
     if count == iterations:
         break
 

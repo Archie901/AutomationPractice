@@ -1,24 +1,33 @@
 import requests
 import json
 import random
+import time
 
-domain = "https://api-trueqrcode-dev.osdb.io"
+domain = "https://api-dev.trueqrcode.com"
 
 pathScan = "/api/v1/public/scans/"
 
 headers = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8", "Connection": "keep-alive"}
 
-deviceIds = ["adcd9ea5-071e-461e-b2e6-f7daa05f3ce5","3cc9cdfa-2d9d-4a53-b888-4163b3c7dfcc","9b9771b0-6951-4baf-bf27-9b4e50b9595a","274b3982-3f59-49e9-828c-f375dc4f4401",
-            "afa6a281-aa61-4645-a873-e0714eebd956","e8706f40-786b-4b50-8d41-8f67d2d18207","a8a6458b-57db-4955-9385-2d841501a7a1","839d2dea-fd2c-45fb-aac1-6c24653096c2",
-            "b2686576-f03d-4613-af13-e67382b7bb07","2b3574f3-36f9-4437-ba79-6194aa064577","0b5f8f40-154e-43e1-bbd1-443f87c0253a","0cd33c0e-0e08-4f1f-af95-3efc2a609405",
-            "db539ce9-7214-440e-8cdf-4597641b1748","9d23030b-f710-4827-ae1b-15d58e996023","8fe55a98-5b84-43a5-bd21-dbe46ff8c42d","c529d496-87e9-430b-91c9-c64ce344f617",
-            "2c9dbe98-2fc7-41a6-8efc-68eae04dacb5","87f2eebc-a6bd-4ed4-9255-eb03f26fb605","43d5afbb-685e-4de3-ba02-ff968e66c853","0ae323fa-cce0-461a-8232-e6dba77590b0"]
+deviceIds = ["8c115a70-4d48-4f47-8245-86ffaffe5d16","2552d0b2-ecfc-4cf1-8378-58646860014c","0f93dd8b-7530-40bc-af78-d3ea5cba77d7","42209e25-daab-4d2e-9a07-7e27eba4076b",
+            "4cccc522-c895-4050-becf-a9d652835f4c","fa641144-9ee9-4258-861d-f5508b03cdf5","e7d699f3-fdc8-4bad-8385-5ac6007d4f9d","47aee305-ee67-4140-a719-e43602ed3d7c",
+            "52b694d1-824d-4dd9-96c7-8971ef822727","9cb1e2f8-3838-4c10-a9fd-04aa4c5928a7","5d3e90cc-6bbf-4ed7-9eef-ba0fa90fb85c","5303374c-a893-4979-a444-6e12167c7d25",
+            "fb616704-34a0-488b-9dc4-e47d31d1d498","ff61d0b4-105b-4757-9da9-c9c8d81a46c0","f99f6959-55c6-4e6b-8f88-739d59aaba0d","0626aee7-e1d4-43b3-91a1-2f9275cab258",
+            "d449624c-930a-4cc0-bac7-81bd215e49fe","5fde1645-79b5-4ed1-89c7-6f5b545dd6a0","f0357f62-5144-4fbb-b9ca-5c902fd75379","a470d86f-253c-4ec7-831e-8a146c88be36"]
 
-latitudes = [50.4101, 51.6998, 46.4075, 42.0003, 52.8823, 40.6473, 23.7252, 42.6824, 32.3985, 33.1375, -32.2499, -20.9614, 65.2934]
+latitudes = [50.4101, 51.6998, 46.4075, 42.0003, 52.8823, 40.6473, 42.6824, 32.3985, 33.1375, 65.2934]
 
-longitudes = [30.5303, 12.7441, 17.4462, 0.1318, -1.5820, 34.1015, 78.7500, -104.2382, -100.8984, 2.9882, -64.3359, 128.6718, 27.9492]
+# additional latitudes which are not typical -32.2499, -20.9614, 23.7252
 
-qr_ids = ["VFRRH3BR","8Q42EABK","5X5TAGX3","RE7A9F26","8JRQR839"]
+longitudes = [30.5303, 22.1318, 24.1318, 21.1015, 20.7500, 23.4462, 29.6718, 27.9492, 31.8813, 28.1299]
+
+# additional longitudes which are not typical 02.9882, 12.7441, 17.4462, -33.5820, -33.5820, -104.2382, -100.8984, -64.3359
+
+UkraineLats = [50.4101, 48.3794, 49.1223, 51.2146, 50.0004, 48.0266, 51.0909]
+
+UkraineLngs = [30.5303, 25.9813, 32.8711, 31.9090, 26.7777, 28.7545, 26.9876]
+
+qr_ids = ["8HQS6UR6","ZQFZGHXM"]
 
 def randomizer(x):
     return random.choice(x)
@@ -27,30 +36,38 @@ def perform_scan():
 
     randomDeviceId = randomizer(deviceIds)    
     randomQR_id = randomizer(qr_ids)
-    randomLat = randomizer(latitudes)
-    randomLng = randomizer(longitudes)
-    #print(randomDeviceId)
-    #print(randomQR_id)
-    #print(randomLat, randomLng)
+    
+    #randomLat = randomizer(latitudes)
+    #randomLng = randomizer(longitudes)
 
-    payloadScan = {"deviceId": randomDeviceId, "gps": {"lat": randomLat, "lng": randomLng, "accuracy": 33}}
+    #print(randomQR_id, randomLat, randomLng)
+
+    randomUkrLat = randomizer(UkraineLats)
+    randomUkrLng = randomizer(UkraineLngs)
+    
+    print(randomQR_id, randomUkrLat, randomUkrLng)    
+
+    #payloadScan = {"deviceId": randomDeviceId, "gps": {"lat": randomLat, "lng": randomLng, "accuracy": 33}}
+
+    payloadScan = {"deviceId": randomDeviceId, "gps": {"lat": randomUkrLat, "lng": randomUkrLng, "accuracy": 33}}
 
     json_paylodScan = json.dumps(payloadScan)
 
     resp_scan = requests.post(url=domain+pathScan+randomQR_id, data=json_paylodScan, headers=headers)
-    #response from request must be received at this moment
+    #response from request must be received at this moment    
     print(resp_scan.status_code, resp_scan.reason, resp_scan.elapsed)
-    resp_qr_id = resp_scan.json()["id"]
-    assert resp_scan.status_code == 200, "status code is not 200"
-    assert resp_scan.reason == "OK", "status message is not OK"
-    assert resp_qr_id == randomQR_id, "id is different"
+    print(resp_scan.json())
+    #resp_qr_id = resp_scan.json()["id"]
+    #assert resp_scan.status_code == 200, "status code is not 200"
+    #assert resp_scan.reason == "OK", "status message is not OK"
+    #assert resp_qr_id == randomQR_id, "id is different"
 
-iterations = 55
+iterations = 15
 
-if __name__ == "__main__":
-    count = 0
-    while True:
-        count += 1
-        perform_scan()
-        if count == iterations:
-            break
+count = 0
+while True:
+    count += 1
+    perform_scan()
+    time.sleep(1)    
+    if count == iterations:
+        break

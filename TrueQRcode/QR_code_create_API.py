@@ -1,11 +1,12 @@
 import requests
 import json
 import random
+import time
 import authorization
 
 token = authorization.access_token
 
-domain = "https://api-trueqrcode-dev.osdb.io"
+domain = "https://api-dev.trueqrcode.com"
 
 pathCreate = "/api/v1/private/qr-code"
 
@@ -64,15 +65,17 @@ def create_qr_code():
 
     resp_create = requests.post(url=domain+pathCreate, data=json_paylodCreate, headers=headers)
     #response from request must be received at this moment
+    print(resp_create.json())
     print(resp_create.status_code, resp_create.reason, resp_create.elapsed)
     assert resp_create.status_code == 200, "status code is not 200"
     assert resp_create.reason == "OK", "status message is not OK"
 
-iterations = 1
+iterations = 2
 
 count = 0
 while True:
     count += 1
     create_qr_code()
+    time.sleep(1)
     if count == iterations:
         break

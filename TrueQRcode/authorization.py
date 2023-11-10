@@ -1,7 +1,7 @@
 import requests
 import json
 
-domain = "https://api-trueqrcode-dev.osdb.io"
+domain = "https://api-dev.trueqrcode.com"
 
 pathLogin = "/api/v1/public/auth/sign-in"
 
