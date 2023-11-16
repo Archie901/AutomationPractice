@@ -64,9 +64,9 @@ def deleteallbooks():
     resp_deleteallbooks = requests.delete(url=domain+endpoint_deleteallbooks, headers=headers, params=params)
     print(resp_deleteallbooks.status_code, resp_deleteallbooks.reason)
 
-login()
-userinfo()
-onebookinfo()
+#login()
+#userinfo()
+#onebookinfo()
 #addonebook()
 #deleteallbooks()
 #userinfo()
@@ -76,7 +76,7 @@ headersing = {
     "Accept-Encoding": "gzip, deflate, br",
     "Accept-Language": "en-US,en;q=0.5",
     "Host": "httpbin.org",
-    "User-Agent": "A completely unknown user agent"
+    "User-Agent": "python-requests/2.31.0"
     }
 
 r = requests.get(url='https://httpbin.org/headers', headers=headersing)

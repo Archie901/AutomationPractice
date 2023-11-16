@@ -2,9 +2,9 @@ import requests
 import json
 import random
 import time
-import authorization
+import dev_authorization
 
-token = authorization.access_token
+token = dev_authorization.access_token
 
 domain = "https://api-dev.trueqrcode.com"
 
@@ -64,7 +64,6 @@ def create_qr_code():
     json_paylodCreate = json.dumps(payloadCreate)
 
     resp_create = requests.post(url=domain+pathCreate, data=json_paylodCreate, headers=headers)
-    #response from request must be received at this moment
     print(resp_create.json())
     print(resp_create.status_code, resp_create.reason, resp_create.elapsed)
     assert resp_create.status_code == 200, "status code is not 200"

@@ -1,7 +1,7 @@
 import requests
 import json
 import random
-import time
+import pytest
 
 domain = "https://api-dev.trueqrcode.com"
 
@@ -27,47 +27,37 @@ UkraineLats = [50.4101, 48.3794, 49.1223, 51.2146, 50.0004, 48.0266, 51.0909]
 
 UkraineLngs = [30.5303, 25.9813, 32.8711, 31.9090, 26.7777, 28.7545, 26.9876]
 
-qr_ids = ["8HQS6UR6","ZQFZGHXM"]
+qr_ids = ["H1JDGC4A", "8HQS6UR6"]
 
 def randomizer(x):
     return random.choice(x)
 
-def perform_scan():
+def test_perform_scan():
 
     randomDeviceId = randomizer(deviceIds)    
     randomQR_id = randomizer(qr_ids)
     
-    #randomLat = randomizer(latitudes)
-    #randomLng = randomizer(longitudes)
-
-    #print(randomQR_id, randomLat, randomLng)
-
-    randomUkrLat = randomizer(UkraineLats)
-    randomUkrLng = randomizer(UkraineLngs)
+    randomLat = randomizer(latitudes)
+    randomLng = randomizer(longitudes)
+    print(randomQR_id, "/ lat:", randomLat, "/ lng:", randomLng)
     
-    print(randomQR_id, randomUkrLat, randomUkrLng)    
+    #randomUkrLat = randomizer(UkraineLats)
+    #randomUkrLng = randomizer(UkraineLngs)    
+    #print(randomQR_id, "/ lat:", randomUkrLat, "/lng:", randomUkrLng)
+     
+    payloadScan = {"deviceId": randomDeviceId, "gps": {"lat": 24.8607, "lng": 67.0011, "accuracy": 33}}
+    
+    #payloadScan = {"deviceId": randomDeviceId, "gps": {"lat": randomUkrLat, "lng": randomUkrLng, "accuracy": 33}}
 
-    #payloadScan = {"deviceId": randomDeviceId, "gps": {"lat": randomLat, "lng": randomLng, "accuracy": 33}}
+    json_payloadScan = json.dumps(payloadScan)
+    resp_scan = requests.post(url=domain+pathScan+randomQR_id, data=json_payloadScan, headers=headers)
+    print(resp_scan.status_code, "/", resp_scan.reason, "/", resp_scan.elapsed)
+    #print(resp_scan.json())
+    assert resp_scan.status_code == 200, "status code not 200"
+    assert resp_scan.headers['Content-Type'] == "application/json", "content type not application/json"
+    assert resp_scan.json()['id'] != None
+    assert resp_scan.json()['name'] != None
 
-    payloadScan = {"deviceId": randomDeviceId, "gps": {"lat": randomUkrLat, "lng": randomUkrLng, "accuracy": 33}}
-
-    json_paylodScan = json.dumps(payloadScan)
-
-    resp_scan = requests.post(url=domain+pathScan+randomQR_id, data=json_paylodScan, headers=headers)
-    #response from request must be received at this moment    
-    print(resp_scan.status_code, resp_scan.reason, resp_scan.elapsed)
-    print(resp_scan.json())
-    #resp_qr_id = resp_scan.json()["id"]
-    #assert resp_scan.status_code == 200, "status code is not 200"
-    #assert resp_scan.reason == "OK", "status message is not OK"
-    #assert resp_qr_id == randomQR_id, "id is different"
-
-iterations = 15
-
-count = 0
-while True:
-    count += 1
-    perform_scan()
-    time.sleep(1)    
-    if count == iterations:
-        break
+# cd TrueQRcode/_tests
+# pytest test_dev_genScan.py -s -vv
+# pytest --count=10 test_dev_genScan.py -s -vv
