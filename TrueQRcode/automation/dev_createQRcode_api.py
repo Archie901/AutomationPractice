@@ -1,39 +1,33 @@
 import requests
 import json
 import time
-from data import Requests, QRcodes, Functions
+from adata import Requests, QRcodes
 import dev_authorization
 
 token = dev_authorization.access_token
 
-headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8", "Connection": "keep-alive", "Authorization": "Bearer " + token}
+headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
+                "Connection": "keep-alive", "Authorization": "Bearer " + token}
 
 def create_qr_code():
-    randomQRname = Functions.randomizer(QRcodes.QRnames)
-    randomFrameText = Functions.randomizer(QRcodes.frameTexts)
-    randomPatternColor = Functions.randomizer(QRcodes.patternColors)
-    randomFrameType = Functions.randomizer(QRcodes.frameTypes)
-    randomPatternType = Functions.randomizer(QRcodes.patternTypes)
-    randomCornerType = Functions.randomizer(QRcodes.cornerTypes)
-    randomTargetURL = Functions.randomizer(QRcodes.targetURLs)
     payloadCreate = {
     "codeType": "WEBSITE",
-	"name": randomQRname,
+	"name": QRcodes.randomQRname(),
 	"design": {
 		"logoSize": 20,
-		"frameText": randomFrameText,
+		"frameText": QRcodes.randomFrameText(),
 		"frameTextSize": 12,
 		"frameTextColor": "#000000",
 		"frameBackgroundColor": "#000000",
-		"backgroundColor": "#FFFFFF",
-		"patternColor": randomPatternColor,
-		"cornerColor": "#000000",
-		"frameType": randomFrameType,
-		"patternType": randomPatternType,
-		"cornerType": randomCornerType
+		"backgroundColor": QRcodes.randomBackColor(),
+		"patternColor": QRcodes.randomPatternColor(),
+		"cornerColor": QRcodes.randomCornerColor(),
+		"frameType": QRcodes.randomFrameType(),
+		"patternType": QRcodes.randomPatternType(),
+		"cornerType": QRcodes.randomCornerType()
         },
 	"website": {
-		"url": randomTargetURL
+		"url": QRcodes.randomTargetUrl()
         }
     }
     payload_json = json.dumps(payloadCreate)
@@ -52,6 +46,5 @@ count = 0
 while True:
     count += 1
     create_qr_code()
-    time.sleep(1)
     if count == iterations:
         break
