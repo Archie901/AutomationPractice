@@ -24,7 +24,8 @@ def create_qr_code():
 		"cornerColor": QRcodes_Templates.randomCornerColor(),
 		"frameType": QRcodes_Templates.randomFrameType(),
 		"patternType": QRcodes_Templates.randomPatternType(),
-		"cornerType": QRcodes_Templates.randomCornerType()
+		"cornerType": QRcodes_Templates.randomCornerType(),
+        "libraryId": QRcodes_Templates.randomLibraryId()
         },
 	"website": {
 		"url": QRcodes_Templates.randomTargetUrl()
@@ -40,7 +41,7 @@ def create_qr_code():
     assert resp_create.json()['name'] != None, "required field value empty"
     assert resp_create.json()['codeType'] != None, "required field value empty"
 
-iterations = 2
+iterations = 10
 
 count = 0
 while True:

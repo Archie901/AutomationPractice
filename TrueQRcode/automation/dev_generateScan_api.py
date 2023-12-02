@@ -7,11 +7,11 @@ def perform_scan():
     deviceId = Scans.randomDeviceId()
     lat = Scans.randomLat()
     lng = Scans.randomLng()
-    qrId = Scans.dev_randomQRid()
-    #print("lat:", lat, "lng:", lng)
-    payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 33}}
+    dev_qrId = Scans.dev_randomQRid()
+    print("lat", lat, "---", "lng", lng)
+    payload_scan = {"deviceId": deviceId, "gps": {"lat": 1.5656567, "lng": 0.056556756, "accuracy": 100}}
     payload_json = json.dumps(payload_scan)
-    resp_scan = requests.post(url=Requests.dev_api_domain+Requests.path_scan+"5KZYQ2BM", data=payload_json, headers=Requests.headers)
+    resp_scan = requests.post(url=Requests.dev_api_domain+Requests.path_scan+dev_qrId, data=payload_json, headers=Requests.headers)
     print("scan request:", resp_scan.status_code, "/", resp_scan.reason, "/", resp_scan.elapsed)
     #print(resp_scan.text)
     assert resp_scan.status_code == 200, "status code not 200"
