@@ -1,10 +1,19 @@
 import time
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from adata import Requests, Scans
 
-iterations = 10
+service = Service()
+
+options = webdriver.ChromeOptions()
+
+#driver = webdriver.Chrome(service=service, options=options)
+
+#driver = webdriver.Edge()
 
 driver = webdriver.Firefox()
+
+iterations = 10
 
 count = 0
 while True:
