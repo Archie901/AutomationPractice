@@ -1,7 +1,7 @@
 import requests
 import json
 import time
-from adata import Requests, QRcodes_Templates
+from adata import Requests, QRcodes_Templates, Methods
 import dev_authorization
 
 token = dev_authorization.access_token
@@ -12,20 +12,20 @@ headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=
 def create_template():
     payloadCreate = {
     "template": {
-        "title": QRcodes_Templates.randomTemplateName(),
+        "title": Methods.randomizer(QRcodes_Templates.TemplateNames),
         },
-    "libraryId": None,
-    "logoSize": 20,
-	"frameText": QRcodes_Templates.randomFrameText(),
-	"frameTextSize": 12,
-	"frameTextColor": "#000000",
-	"frameBackgroundColor": "#000000",
-	"backgroundColor": QRcodes_Templates.randomBackColor(),
-	"patternColor": QRcodes_Templates.randomPatternColor(),
-	"cornerColor": QRcodes_Templates.randomCornerColor(),
-	"frameType": QRcodes_Templates.randomFrameType(),
-	"patternType": QRcodes_Templates.randomPatternType(),
-	"cornerType": QRcodes_Templates.randomCornerType()
+        "logoSize": 20,
+        "frameTextSize": 12,
+		"frameText": Methods.randomizer(QRcodes_Templates.frameTexts),		
+		"frameTextColor": Methods.randomizer(QRcodes_Templates.mediumColors),
+		"frameBackgroundColor": Methods.randomizer(QRcodes_Templates.darkColors),
+		"backgroundColor": Methods.randomizer(QRcodes_Templates.lightColors),
+		"patternColor": Methods.randomizer(QRcodes_Templates.darkColors),
+		"cornerColor": Methods.randomizer(QRcodes_Templates.darkColors),
+		"frameType": Methods.randomizer(QRcodes_Templates.frameTypes),
+		"patternType": Methods.randomizer(QRcodes_Templates.patternTypes),
+		"cornerType": Methods.randomizer(QRcodes_Templates.cornerTypes),
+        "libraryId": None
     }
     payload_json = json.dumps(payloadCreate)
     resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_tempCreate, data=payload_json, headers=headersToken)
@@ -36,7 +36,7 @@ def create_template():
     assert resp_create.json()['id'] != None, "required field value empty"
     assert resp_create.json()['createdDate'] != None, "required field value empty"
 
-iterations = 6
+iterations = 1
 
 count = 0
 while True:
