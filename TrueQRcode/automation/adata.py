@@ -63,10 +63,10 @@ class Scans:
         randomDeviceId= random.choice(Scans.deviceIds)
         return randomDeviceId
     def randomLat():
-        randomLat= random.choice(Scans.NorthAmerLats)
+        randomLat= random.choice(Scans.EuropeLats)
         return randomLat
     def randomLng():
-        randomLng= random.choice(Scans.NorthAmerLngs)
+        randomLng= random.choice(Scans.EuropeLngs)
         return randomLng
     def dev_randomQRid():
         dev_randomQRid= random.choice(Scans.dev_qrIds)
@@ -79,18 +79,22 @@ class QRcodes_Templates:
     TemplateNames = ["Reprehe", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
     QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
     frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]
+    frameTextColors = []
+    frameBackgroundColors = []
     backgroundColors = ["#cde99f", "#ffffff", "#a7e0d4", "#eec0ae"]
     patternColors = ["#e20c0ca8", "#804801", "#000000", "#026924", "#9104ad"]
     cornerColors = ["#008327a8", "#010e80", "#4e4e4e", "#000000", "#e60f08"]
     frameTypes = ["NONE", "NO_BORDER", "BORDER", "BORDER_INTERRUPTION", "BORDER_SPACE_LABEL_TOP"]
     patternTypes = ["SQUARE", "CLASSY", "CLASSY_ROUNDED", "DOTS", "EXTRA_ROUNDED", "ROUNDED"]
     cornerTypes = ["SQUARE", "FULL_CIRCLE", "ROUNDED"]
-    targetURLs = ["https://www.englishgrammar.org", "https://wordcounter.net/character-count", "https://advice.writing.utoronto.ca",
-                  "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://uxdesign.cc", "https://www.altexsoft.com"]
     library_ids = ['ae6eadae-e652-474c-af45-8cf4697c23df','5c91fb32-749d-435b-a7e5-80ea9ba5b78a', 'b69be0da-a5a3-4934-aedd-c9cb43cf94b5',
                    '56109ab1-26d5-4ff3-9821-8a76f93ea099','7bb1186b-44df-4d64-ad8e-fd89eb72b106', '13bd9c18-dfbd-466f-bdba-8a3dc7189dbb',
                    '3ac3f020-5293-4ea5-b528-b05209963e2a','e7909b33-9ae9-407c-84a9-d454971580ea', '14d8d2aa-456f-4b3a-ad74-a765d1dc2992',
                    '62d5386e-b04f-4889-b7b5-8dce7a2a4034','6de257c8-e208-4156-9af6-f02db2f765c2', None]
+    web_targetURLs = ["https://www.englishgrammar.org", "https://wordcounter.net/character-count", "https://advice.writing.utoronto.ca",
+                  "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://uxdesign.cc", "https://www.altexsoft.com"]
+    
+    pdf_fileIDs = []
     
     def randomTemplateName():
         randomTemplateName = random.choice(QRcodes_Templates.TemplateNames)
@@ -119,9 +123,10 @@ class QRcodes_Templates:
     def randomCornerType():
         randomCornerType= random.choice(QRcodes_Templates.cornerTypes)
         return randomCornerType
-    def randomTargetUrl():
-        randomTargetUrl= random.choice(QRcodes_Templates.targetURLs)
-        return randomTargetUrl
     def randomLibraryId():
         randomLibraryId= random.choice(QRcodes_Templates.library_ids)
         return randomLibraryId
+    
+    def randomWebTargetUrl():
+        randomWebTargetUrl= random.choice(QRcodes_Templates.web_targetURLs)
+        return randomWebTargetUrl

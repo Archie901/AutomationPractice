@@ -28,7 +28,7 @@ def create_qr_code():
         "libraryId": QRcodes_Templates.randomLibraryId()
         },
 	"website": {
-		"url": QRcodes_Templates.randomTargetUrl()
+		"url": QRcodes_Templates.randomWebTargetUrl()
         }
     }
     payload_json = json.dumps(payloadCreate)

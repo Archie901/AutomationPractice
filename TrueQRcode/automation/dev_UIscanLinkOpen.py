@@ -9,9 +9,9 @@ options = webdriver.ChromeOptions()
 
 #driver = webdriver.Chrome(service=service, options=options)
 
-#driver = webdriver.Edge()
+driver = webdriver.Edge()
 
-driver = webdriver.Firefox()
+#driver = webdriver.Firefox()
 
 iterations = 10
 

@@ -9,7 +9,7 @@ def perform_scan():
     lng = Scans.randomLng()
     dev_qrId = Scans.dev_randomQRid()
     print("lat", lat, "---", "lng", lng)
-    payload_scan = {"deviceId": deviceId, "gps": {"lat": 1.5656567, "lng": 0.056556756, "accuracy": 100}}
+    payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 100}}
     payload_json = json.dumps(payload_scan)
     resp_scan = requests.post(url=Requests.dev_api_domain+Requests.path_scan+dev_qrId, data=payload_json, headers=Requests.headers)
     print("scan request:", resp_scan.status_code, "/", resp_scan.reason, "/", resp_scan.elapsed)
@@ -19,7 +19,7 @@ def perform_scan():
     assert resp_scan.json()['id'] != None
     assert resp_scan.json()['name'] != None
 
-iterations = 5
+iterations = 15
 
 count = 0
 while True:
