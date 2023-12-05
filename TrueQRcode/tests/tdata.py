@@ -17,13 +17,13 @@ class Customers:
     dev_customerCreds = (
         ["komic@mailinator.com", "Something555!"],
         ["mykemos@protonmail.com", "Qwerty2233!"],
-        ["merkar@mailinator.com", "Something555!"]
+        ["merkar@mailinator.com", "Something555!"],
+        ["porterbird12@gmail.com", "Qwerty123!"],
+        ["zovid@mailinator.com", "Qwerty123!"],
+        ["someid@mailinator.com", "Qwerty123!"],
+        ["fahaw@mailinator.com", "Qwerty123!"],
     )
     prod_customerCreds = ["mykemos@protonmail.com", "Something555!"]
-
-    def randomCreds():
-        randomCreds= random.choice(Customers.dev_customerCreds)
-        return randomCreds
 
 class Scans:
     deviceIds = ["8c115a70-4d48-4f47-8245-86ffaffe5d16","2552d0b2-ecfc-4cf1-8378-58646860014c","0f93dd8b-7530-40bc-af78-d3ea5cba77d7",
@@ -49,65 +49,37 @@ class Scans:
     #dev_qrIds = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
     #Komic codes
 
-    dev_qrIds = ["ZQFZGHXM","UHM7T997","5X5TAGX3"]
+    dev_qrIds = ["VFRRH3BR","JJZXVUZD","LLD9U6YD"]
     #Mykemo codes
 
     prod_qrIds = ["CZNR1FS1","3ZHPT5K8"]
     #Mykemo codes
     
-    def randomDeviceId():
-        randomDeviceId= random.choice(Scans.deviceIds)
-        return randomDeviceId
-    def randomLat():
-        randomLat= random.choice(Scans.AfricaLats)
-        return randomLat
-    def randomLng():
-        randomLng= random.choice(Scans.AfricaLngs)
-        return randomLng
-    def dev_randomQRid():
-        dev_randomQRid= random.choice(Scans.dev_qrIds)
-        return dev_randomQRid
-    
 class QRcodes_Templates:
+    lightColors = ["#ffffff", "#e2a0a0", "#f0d99c", "#ccf09c", "#e7d2fa", "#d2fafa"]
+    darkColors = ["#000000", "#802b04", "#042475", "#0a5706", "#46035c", "#4a1201"]
+    mediumColors = ["#fc5e2d", "#ff1c3a", "#284ffc", "#0bad19"]
     TemplateNames = ["Reprehe", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
-    QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>"]
-    frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_"]
-    backgroundColors = ["#cde99f", "#ffffff", "#a7e0d4", "#eec0ae"]
-    patternColors = ["#e20c0ca8", "#804801", "#000000", "#026924", "#9104ad"]
-    cornerColors = ["#008327a8", "#010e80", "#4e4e4e", "#000000", "#e60f08"]
-    frameTypes = ["NONE", "NO_BORDER", "BORDER", "BORDER_INTERRUPTION", "BORDER_SPACE_LABEL_TOP"]
+    QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
+    AddNames = ["feeling", "tedious", "vacuous", "normal", "passenger", "license", "broad", "traumatize", "sentinent"]
+    frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]
+    frameTypes = ["NONE", "BORDER_LABEL_BOTTOM", "BORDER_LABEL_TOP", "ARROW_LABEL_BOTTOM", "ARROW_LABEL_TOP", "BORDER_SPACE_LABEL_BOTTOM",
+                  "BORDER_SPACE_LABEL_TOP", "NO_BORDER", "BORDER", "BORDER_INTERRUPTION"]
     patternTypes = ["SQUARE", "CLASSY", "CLASSY_ROUNDED", "DOTS", "EXTRA_ROUNDED", "ROUNDED"]
     cornerTypes = ["SQUARE", "FULL_CIRCLE", "ROUNDED"]
+    library_ids = ['ae6eadae-e652-474c-af45-8cf4697c23df','5c91fb32-749d-435b-a7e5-80ea9ba5b78a', 'b69be0da-a5a3-4934-aedd-c9cb43cf94b5',
+                   '56109ab1-26d5-4ff3-9821-8a76f93ea099','7bb1186b-44df-4d64-ad8e-fd89eb72b106', '13bd9c18-dfbd-466f-bdba-8a3dc7189dbb',
+                   '3ac3f020-5293-4ea5-b528-b05209963e2a','e7909b33-9ae9-407c-84a9-d454971580ea', '14d8d2aa-456f-4b3a-ad74-a765d1dc2992',
+                   '62d5386e-b04f-4889-b7b5-8dce7a2a4034','6de257c8-e208-4156-9af6-f02db2f765c2', None]
     targetURLs = ["https://www.englishgrammar.org", "https://wordcounter.net/character-count", "https://advice.writing.utoronto.ca",
-                  "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com"]
+                  "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://uxdesign.cc", "https://www.altexsoft.com",
+                  "https://stripe.com/docs/testing", "https://www.freeimageslive.co.uk", "https://dummyimage.com", "https://www.charactercountonline.com",
+                  "https://learnenglish.britishcouncil.org", "https://qatechnicals.wordpress.com", "https://twitter.com", "https://www.tiktok.com/en"]
     
-    def randomTemplateName():
-        randomTemplateName = random.choice(QRcodes_Templates.TemplateNames)
-        return randomTemplateName    
-    def randomQRname():
-        randomQRname = random.choice(QRcodes_Templates.QRnames)
-        return randomQRname
-    def randomFrameText():
-        randomFrameText = random.choice(QRcodes_Templates.frameTexts)
-        return randomFrameText
-    def randomBackColor():
-        randomBackColor = random.choice(QRcodes_Templates.backgroundColors)
-        return randomBackColor
-    def randomPatternColor():
-        randomPatterColor = random.choice(QRcodes_Templates.patternColors)
-        return randomPatterColor
-    def randomCornerColor():
-        randomCornerColor= random.choice(QRcodes_Templates.cornerColors)
-        return randomCornerColor
-    def randomFrameType():
-        randomFrameType= random.choice(QRcodes_Templates.frameTypes)
-        return randomFrameType
-    def randomPatternType():
-        randomPatternType= random.choice(QRcodes_Templates.patternTypes)
-        return randomPatternType
-    def randomCornerType():
-        randomCornerType= random.choice(QRcodes_Templates.cornerTypes)
-        return randomCornerType
-    def randomTargetUrl():
-        randomTargetUrl= random.choice(QRcodes_Templates.targetURLs)
-        return randomTargetUrl
+    pdf_fileIds = ["a78cf390-b110-421f-97ed-962daaad8747", "bf0c6d24-4aed-4c87-bf7c-6aeaa0070978", "73d530c5-1802-4d3a-a2ca-71a81c72e8fd",
+                   "0a45bc6e-3f15-461e-b6ef-2395c863d167", "52cd336b-669a-4abb-a720-d143bc332651"]
+
+class Methods:
+    def randomizer(x):
+        randomed = random.choice(x)
+        return randomed

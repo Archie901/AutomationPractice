@@ -1,7 +1,7 @@
 import requests
 import json
 import time
-from adata import Requests, QRcodes_Templates
+from adata import Requests, QRcodes_Templates, Methods
 import dev_authorization
 
 token = dev_authorization.access_token
@@ -12,23 +12,23 @@ headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=
 def create_qr_code():
     payloadCreate = {
     "codeType": "WEBSITE",
-	"name": QRcodes_Templates.randomQRname(),
+	"name": Methods.randomizer(QRcodes_Templates.QRnames),
 	"design": {
 		"logoSize": 20,
-		"frameText": QRcodes_Templates.randomFrameText(),
-		"frameTextSize": 12,
-		"frameTextColor": "#000000",
-		"frameBackgroundColor": "#000000",
-		"backgroundColor": QRcodes_Templates.randomBackColor(),
-		"patternColor": QRcodes_Templates.randomPatternColor(),
-		"cornerColor": QRcodes_Templates.randomCornerColor(),
-		"frameType": QRcodes_Templates.randomFrameType(),
-		"patternType": QRcodes_Templates.randomPatternType(),
-		"cornerType": QRcodes_Templates.randomCornerType(),
-        "libraryId": QRcodes_Templates.randomLibraryId()
+        "frameTextSize": 12,
+		"frameText": Methods.randomizer(QRcodes_Templates.frameTexts),		
+		"frameTextColor": Methods.randomizer(QRcodes_Templates.mediumColors),
+		"frameBackgroundColor": Methods.randomizer(QRcodes_Templates.darkColors),
+		"backgroundColor": Methods.randomizer(QRcodes_Templates.lightColors),
+		"patternColor": Methods.randomizer(QRcodes_Templates.darkColors),
+		"cornerColor": Methods.randomizer(QRcodes_Templates.darkColors),
+		"frameType": Methods.randomizer(QRcodes_Templates.frameTypes),
+		"patternType": Methods.randomizer(QRcodes_Templates.patternTypes),
+		"cornerType": Methods.randomizer(QRcodes_Templates.cornerTypes),
+        "libraryId": Methods.randomizer(QRcodes_Templates.library_ids)
         },
 	"website": {
-		"url": QRcodes_Templates.randomWebTargetUrl()
+		"url": Methods.randomizer(QRcodes_Templates.targetURLs)
         }
     }
     payload_json = json.dumps(payloadCreate)
@@ -41,7 +41,7 @@ def create_qr_code():
     assert resp_create.json()['name'] != None, "required field value empty"
     assert resp_create.json()['codeType'] != None, "required field value empty"
 
-iterations = 10
+iterations = 5
 
 count = 0
 while True:

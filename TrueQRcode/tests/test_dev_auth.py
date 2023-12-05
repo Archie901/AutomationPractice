@@ -1,18 +1,18 @@
 import requests
 import json
-from tdata import Requests, Customers
+from tdata import Requests, Customers, Methods
 
 def test_login_profile():
-    random_creds = Customers.randomCreds()
+    random_creds = Methods.randomizer(Customers.dev_customerCreds)
     print(random_creds)
     customer_email = random_creds[0]
     customer_password = random_creds[1]
     payload_login = {"authType": "TOKEN", "email": customer_email, "password": customer_password}
     payload_json = json.dumps(payload_login)
     resp_login = requests.post(url=Requests.dev_api_domain+Requests.path_login, data=payload_json, headers=Requests.headers)
+    #print(resp_login.text)
     print("login request:", resp_login.status_code, "/", resp_login.reason, "/", resp_login.elapsed)
     print("email from login response:", f"-- {resp_login.json()["email"]} --")
-    #print(resp_login.text)
     assert resp_login.status_code == 200, "status code not 200"
     assert resp_login.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_login.json()['email'] == customer_email, "email does not match"
@@ -27,9 +27,9 @@ def test_login_profile():
     headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
                    "Connection": "keep-alive", "Authorization": "Bearer " + access_token}
     resp_profile = requests.get(url=Requests.dev_api_domain+Requests.path_profile, headers=headersToken)
+    #print(resp_profile.text)
     print("profile request:", resp_profile.status_code, "/", resp_profile.reason, "/", resp_profile.elapsed)
     print("email from profile response:", f"-- {resp_profile.json()['email']} --")
-    #print(resp_profile.text)
     assert resp_profile.status_code == 200, "status code not 200"
     assert resp_profile.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_profile.json()['email'] == resp_login_email, "email does not match"

@@ -13,15 +13,23 @@ def create_qr_code():
     socialLinks = [
     	{"linkType": "FACEBOOK", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
     	{"linkType": "LINKEDIN", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
-    	#{"linkType": "TIKTOK", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
+    	{"linkType": "TIKTOK", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
     	{"linkType": "TELEGRAM", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
-    	#{"linkType": "WHATSAPP", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
-    	#{"linkType": "INSTAGRAM", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
+    	{"linkType": "WHATSAPP", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
+    	{"linkType": "INSTAGRAM", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
     	{"linkType": "YOUTUBE", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"},
     	{"linkType": "TWITTER", "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": "social"}
     ]
+    customLinks = [
+        {"library": {}, "libraryId": Methods.randomizer(QRcodes_Templates.library_ids),
+         "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": Methods.randomizer(QRcodes_Templates.AddNames), "linkType": "CUSTOM"},
+        {"library": {}, "libraryId": Methods.randomizer(QRcodes_Templates.library_ids),
+         "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": Methods.randomizer(QRcodes_Templates.AddNames), "linkType": "CUSTOM"},
+        {"library": {}, "libraryId": Methods.randomizer(QRcodes_Templates.library_ids),
+         "url": Methods.randomizer(QRcodes_Templates.targetURLs), "title": Methods.randomizer(QRcodes_Templates.AddNames), "linkType": "CUSTOM"},
+        ]
     payloadCreate = {
-    "codeType": "V_CARD",
+    "codeType": "MULTILINK",
 	"name": Methods.randomizer(QRcodes_Templates.QRnames),
 	"design": {
 		"logoSize": 20,
@@ -37,34 +45,19 @@ def create_qr_code():
 		"cornerType": Methods.randomizer(QRcodes_Templates.cornerTypes),
         "libraryId": Methods.randomizer(QRcodes_Templates.library_ids)
         },
-	"vcard": {
-		"designPrimaryColor": Methods.randomizer(QRcodes_Templates.darkColors),
-		"designSecondaryColor": Methods.randomizer(QRcodes_Templates.lightColors),
-		"designNameColor": Methods.randomizer(QRcodes_Templates.lightColors),
-		"designTextColor": Methods.randomizer(QRcodes_Templates.darkColors),
-		"designIconColor": Methods.randomizer(QRcodes_Templates.mediumColors),
-		"designTextHoverColor": Methods.randomizer(QRcodes_Templates.mediumColors),
-		"designTitleColor": Methods.randomizer(QRcodes_Templates.darkColors),
-		"buttonText": "Add Contact",
-		"buttonSize": 14,
-		"buttonBgColor": Methods.randomizer(QRcodes_Templates.lightColors),
+    "multilink": {
+        "socialLinks": socialLinks,
+        "customLinks": customLinks,
+        "buttonBgColor": Methods.randomizer(QRcodes_Templates.lightColors),
 		"buttonTextColor": Methods.randomizer(QRcodes_Templates.darkColors),
 		"buttonHoverColor": Methods.randomizer(QRcodes_Templates.mediumColors),
 		"buttonBorderColor": Methods.randomizer(QRcodes_Templates.darkColors),
-		"fullName": "Person Aboutall",
-		"phoneNumber": "+385915981787",
-		"alternativePhoneNumber": "+385915981787",
-		"email": "xedyx@mailinator.com",
-		"website": Methods.randomizer(QRcodes_Templates.targetURLs),
-		"companyName": "Very important vernture.LTD",
-		"jobPosition": "senior assistant of helper",
-		"street": "541 Kometensingel",
-		"postalCode": "1033 BR",
-		"city": "Amsterdam",
-		"state": "North Holland",
-		"country": "Netherlands",
-		"links": socialLinks,
-		"libraryId": Methods.randomizer(QRcodes_Templates.library_ids)
+		"designDescriptionColor": Methods.randomizer(QRcodes_Templates.lightColors),
+		"designTitleColor": Methods.randomizer(QRcodes_Templates.lightColors),
+		"designBgColor": Methods.randomizer(QRcodes_Templates.darkColors),
+		"libraryId": Methods.randomizer(QRcodes_Templates.library_ids),
+		"description": "Sequi ipsam",
+		"title": "Adipisicing dolor"
         },
     }
     payload_json = json.dumps(payloadCreate)
@@ -77,7 +70,7 @@ def create_qr_code():
     assert resp_create.json()['name'] != None, "required field value empty"
     assert resp_create.json()['codeType'] != None, "required field value empty"
 
-iterations = 1
+iterations = 5
 
 count = 0
 while True:
