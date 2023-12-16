@@ -15,6 +15,7 @@ class Requests:
 
 class Customers:
     dev_customerCreds = (
+        #FROM TYPICAL DEV BASE:
         ["komic@mailinator.com", "Something555!"],
         ["mykemos@protonmail.com", "Qwerty2233!"],
         ["merkar@mailinator.com", "Something555!"],
@@ -22,6 +23,9 @@ class Customers:
         ["zovid@mailinator.com", "Qwerty123!"],
         ["someid@mailinator.com", "Qwerty123!"],
         ["fahaw@mailinator.com", "Qwerty123!"],
+        #FROM PREPROD BASE:
+        ["newest@mailinator.com", "Qwerty123!"],
+        ["selovi@maildrop.cc", "Qwerty123!"]
     )
     prod_customerCreds = ["mykemos@protonmail.com", "Something555!"]
 
@@ -46,38 +50,59 @@ class Scans:
     UkraineLats = [50.4101, 48.3794, 49.1223, 51.2146, 50.0004, 48.0266, 51.0909]
     UkraineLngs = [30.5303, 25.9813, 32.8711, 31.9090, 26.7777, 28.7545, 26.9876]
 
-    #dev_qrIds = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
-    #Komic codes
+    #FROM TYPICAL DEV BASE:
 
-    dev_qrIds = ["VFRRH3BR","JJZXVUZD","LLD9U6YD"]
-    #Mykemo codes
-
-    prod_qrIds = ["CZNR1FS1","3ZHPT5K8"]
-    #Mykemo codes
+    dev_qrIds_Komic = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
     
-class QRcodes_Templates:
-    lightColors = ["#ffffff", "#e2a0a0", "#f0d99c", "#ccf09c", "#e7d2fa", "#d2fafa"]
-    darkColors = ["#000000", "#802b04", "#042475", "#0a5706", "#46035c", "#4a1201"]
-    mediumColors = ["#fc5e2d", "#ff1c3a", "#284ffc", "#0bad19"]
-    TemplateNames = ["Reprehe", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
+    dev_qrIds_Mykemo = ["VFRRH3BR","JJZXVUZD","LLD9U6YD"]
+    
+    #FROM PREPROD BASE:
+
+    dev_qrIds_Newest = ["5ZDMUQQ5","MYQZ7G8G","NSRHPAUP"]
+
+    dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
+
+    #FROM PROD BASE:
+
+    prod_qrIds_Mykemo = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
+    
+class QRtemp:
+    sizes = [10, 11, 12, 13, 14, 15, 16]
+    templateNames = ["Reprehe", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
     QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
-    AddNames = ["feeling", "tedious", "vacuous", "normal", "passenger", "license", "broad", "traumatize", "sentinent"]
     frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]
     frameTypes = ["NONE", "BORDER_LABEL_BOTTOM", "BORDER_LABEL_TOP", "ARROW_LABEL_BOTTOM", "ARROW_LABEL_TOP", "BORDER_SPACE_LABEL_BOTTOM",
                   "BORDER_SPACE_LABEL_TOP", "NO_BORDER", "BORDER", "BORDER_INTERRUPTION"]
     patternTypes = ["SQUARE", "CLASSY", "CLASSY_ROUNDED", "DOTS", "EXTRA_ROUNDED", "ROUNDED"]
     cornerTypes = ["SQUARE", "FULL_CIRCLE", "ROUNDED"]
-    library_ids = ['ae6eadae-e652-474c-af45-8cf4697c23df','5c91fb32-749d-435b-a7e5-80ea9ba5b78a', 'b69be0da-a5a3-4934-aedd-c9cb43cf94b5',
-                   '56109ab1-26d5-4ff3-9821-8a76f93ea099','7bb1186b-44df-4d64-ad8e-fd89eb72b106', '13bd9c18-dfbd-466f-bdba-8a3dc7189dbb',
-                   '3ac3f020-5293-4ea5-b528-b05209963e2a','e7909b33-9ae9-407c-84a9-d454971580ea', '14d8d2aa-456f-4b3a-ad74-a765d1dc2992',
-                   '62d5386e-b04f-4889-b7b5-8dce7a2a4034','6de257c8-e208-4156-9af6-f02db2f765c2', None]
-    targetURLs = ["https://www.englishgrammar.org", "https://wordcounter.net/character-count", "https://advice.writing.utoronto.ca",
+    weblinks = ["https://www.englishgrammar.org", "https://wordcounter.net/character-count", "https://advice.writing.utoronto.ca",
                   "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://uxdesign.cc", "https://www.altexsoft.com",
                   "https://stripe.com/docs/testing", "https://www.freeimageslive.co.uk", "https://dummyimage.com", "https://www.charactercountonline.com",
                   "https://learnenglish.britishcouncil.org", "https://qatechnicals.wordpress.com", "https://twitter.com", "https://www.tiktok.com/en"]
     
-    pdf_fileIds = ["a78cf390-b110-421f-97ed-962daaad8747", "bf0c6d24-4aed-4c87-bf7c-6aeaa0070978", "73d530c5-1802-4d3a-a2ca-71a81c72e8fd",
-                   "0a45bc6e-3f15-461e-b6ef-2395c863d167", "52cd336b-669a-4abb-a720-d143bc332651"]
+    library_ids = ["315736cc-6a8f-48ba-913c-f85ef9f1fc13", "0af8a641-b6a5-425a-bc56-6cb088ae4788", "1435db54-64cc-4f05-8960-66e16f89d651",
+                   "792a07bb-d289-440a-bd9a-6bd73a7f3d62", "32798bea-6bd7-4a91-baba-8fe219b3f6ed", None]
+    
+    pdf_fileIds = ["9511808e-39d1-42d0-9d9d-9326eb53cdd3"]
+
+class General:
+    lightColors = ["#ffffff", "#e2a0a0", "#f0d99c", "#ccf09c", "#e7d2fa", "#d2fafa"]
+    darkColors = ["#000000", "#802b04", "#042475", "#0a5706", "#46035c", "#4a1201"]
+    mediumColors = ["#fc5e2d", "#ff1c3a", "#284ffc", "#0bad19"]
+    words = ["feeling", "tedious", "vacuous", "normal", "passenger", "license", "broad", "traumatize", "sentinent", "Ruler", "Trapping", "Summerthing",
+             "Mixandpolish", "temper", "chieftain", "recondite", "Romantic", "Bawdy", "Rhetorical"]
+    persons = ["Aditya Sharp", "Kaila Guerrero", "Maribel Trevino", "Jaylen Rosario", "Christian Montoya", "Ernest Schneider", "Regan Gates",
+               "Valentino Middleton", "Lilianna Austin", "Zaiden Rowland", "Iris Andrews", "Jaida Holloway"]
+    companies = ["Wild West Outreach", "Asap Marketing 2", "Partners and thing LTD", "Wind Eagle Marketing", "Haq Technologies", "Take Touchdown",
+                 "Atomic Army Surplus", "Berco Architects inc.", "Wilson & Kinsey LTD", "Kota Art Works", "Advanced Black Spot"]
+    positions = ["Provider of goods", "Senior assistant of helper", "Best employee eva", "junior office manager spreader", "A man with issues"]
+    countries = ["Thailand", "Malawi", "Kazakhstan", "Hungary", "Ukraine", "Tanzania", "Central African Republic", "Serbia", "Spain", "Brunei"]
+    cities = ["London", "Kyiv", "Poltava", "Odessa", "Lagos", "Mexico City", "Santiago", "Chicago", "Montreal", "New York", "Belgrade"]
+    postalCodes = [53150, 41824, 90901, 84331, 33222, 43641, 80095, 12546, 77435, 76513, 99942, 19400, 77566]
+    emails = ["joglo@me.com", "bradl@verizon.net", "jdhedden@yahoo.ca", "smallpaul@gmail.com", "staffelb@optonline.net", "damian@att.net",
+              "grolschie@yahoo.com", "mcsporran@me.com", "andersbr@att.net", "mstrout@outlook.com", "penna@yahoo.ca", "fallorn@optonline.net"]
+    telNumbers = ["+31584085974", "+31231264195", "+31649934336", "+31358162470", "+3141877924", "+31368447423", "+31626347344",
+                  "+16144700387", "+15348070827", "+18607288366", "+16787342897", "+13854743052", "+14066287751", "+14752095956"]
 
 class Methods:
     def randomizer(x):
