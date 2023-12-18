@@ -3,10 +3,8 @@ import json
 from tdata import Requests, Customers, Methods
 
 def test_login_profile():
-    random_creds = Methods.randomizer(Customers.dev_customerCreds)
-    print(random_creds)
-    customer_email = random_creds[0]
-    customer_password = random_creds[1]
+    customer_email = Customers.dev_customerCreds[7][0]
+    customer_password = Customers.dev_customerCreds[7][1]
     payload_login = {"authType": "TOKEN", "email": customer_email, "password": customer_password}
     payload_json = json.dumps(payload_login)
     resp_login = requests.post(url=Requests.dev_api_domain+Requests.path_login, data=payload_json, headers=Requests.headers)

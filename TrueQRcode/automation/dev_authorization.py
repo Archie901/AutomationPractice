@@ -3,8 +3,8 @@ import json
 from adata import Requests, Customers
 
 def login():
-    customer_email = Customers.dev_customerCreds[8][0]
-    customer_password = Customers.dev_customerCreds[8][1]
+    customer_email = Customers.dev_customerCreds[7][0]
+    customer_password = Customers.dev_customerCreds[7][1]
     payload_login = {"authType": "TOKEN", "email": customer_email, "password": customer_password}
     payload_json = json.dumps(payload_login)
     resp_login = requests.post(url=Requests.dev_api_domain+Requests.path_login, data=payload_json, headers=Requests.headers)

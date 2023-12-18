@@ -8,7 +8,7 @@ def perform_scan():
     lat = Methods.randomizer(Scans.NorthAmerLats)
     lng = Methods.randomizer(Scans.NorthAmerLngs)
     #dev_qrId = Methods.randomizer(Scans.dev_qrIds_Newest)
-    dev_qrId = Methods.randomizer(["T611QAHY", "7KPXQKYU"])
+    dev_qrId = Methods.randomizer(["D8MXM3NE","FBVMWTX4","V59U5YL2"])
     print("lat", lat, "---", "lng", lng)
     #print("device:", deviceId, "---", "qrId:", dev_qrId)
     payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 100}}
@@ -21,7 +21,7 @@ def perform_scan():
     assert resp_scan.json()['id'] != None
     assert resp_scan.json()['name'] != None
 
-iterations = 10
+iterations = 15
 
 count = 0
 while True:

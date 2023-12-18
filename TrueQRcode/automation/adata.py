@@ -58,7 +58,7 @@ class Scans:
     
     #FROM PREPROD BASE:
 
-    dev_qrIds_Newest = ["5ZDMUQQ5","MYQZ7G8G","NSRHPAUP"]
+    dev_qrIds_Newest = ["D8MXM3NE","FBVMWTX4","V59U5YL2"]
 
     dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
 
@@ -68,7 +68,7 @@ class Scans:
     
 class QRtemp:
     sizes = [10, 11, 12, 13, 14, 15, 16]
-    templateNames = ["Reprehe", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
+    templateNames = ["Reprehe ost verden", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
     QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
     frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]
     frameTypes = ["NONE", "BORDER_LABEL_BOTTOM", "BORDER_LABEL_TOP", "ARROW_LABEL_BOTTOM", "ARROW_LABEL_TOP", "BORDER_SPACE_LABEL_BOTTOM",

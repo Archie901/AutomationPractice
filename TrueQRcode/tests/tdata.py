@@ -11,7 +11,7 @@ class Requests:
     path_qrSingle = "/api/v1/private/qr-code/"
     path_scan = "/api/v1/public/scans/"
     headers = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8", "Connection": "keep-alive"}
-    access_token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1NfVE9LRU4iLCJzZXNzaW9uSGFzaCI6IjI1ZmIxZjM5LTdmYTEtNGU2Zi1iNWFhLTRiOTZhODc4YWNkOCIsImVtYWlsIjoibXlrZW1vc0Bwcm90b25tYWlsLmNvbSIsImlhdCI6MTcwMDc3ODA2OCwiZXhwIjoxNzAwODY0NDY4fQ.mOt6MYasCT_lGLABxXFiV7J_aJwJnoqeNg-Is2MP0GY"
+    access_token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1NfVE9LRU4iLCJzZXNzaW9uSGFzaCI6ImRjMjM0NGJjLThkNTctNDkxYi1iZWI3LTI5Y2E5YWYyZjJkOSIsImVtYWlsIjoibmV3ZXN0QG1haWxpbmF0b3IuY29tIiwiaWF0IjoxNzAyOTM2NDkwLCJleHAiOjE3MDMwMjI4OTB9.WWSXW9w4JrYh9ML9PiEVFSZU0BwWgA8P4OCzK1ctHq0"
 
 class Customers:
     dev_customerCreds = (
@@ -68,7 +68,7 @@ class Scans:
     
 class QRtemp:
     sizes = [10, 11, 12, 13, 14, 15, 16]
-    templateNames = ["Reprehe", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
+    templateNames = ["Reprehe ost verden", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
     QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
     frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]
     frameTypes = ["NONE", "BORDER_LABEL_BOTTOM", "BORDER_LABEL_TOP", "ARROW_LABEL_BOTTOM", "ARROW_LABEL_TOP", "BORDER_SPACE_LABEL_BOTTOM",

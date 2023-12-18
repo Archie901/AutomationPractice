@@ -5,9 +5,9 @@ from adata import Requests, Scans, Methods
 
 def perform_scan():
     deviceId = Methods.randomizer(Scans.deviceIds)
-    lat = Methods.randomizer(Scans.EuropeLats)
-    lng = Methods.randomizer(Scans.EuropeLngs)
-    prod_qrId = Methods.randomizer(Scans.prod_qrIds)
+    lat = Methods.randomizer(Scans.AfricaLats)
+    lng = Methods.randomizer(Scans.AfricaLngs)
+    prod_qrId = Methods.randomizer(Scans.prod_qrIds_Mykemo)
     print("lat", lat, "---", "lng", lng)
     #print("device:", deviceId, "---", "qrId:", dev_qrId)
     payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 100}}
