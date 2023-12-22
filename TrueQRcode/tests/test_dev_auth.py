@@ -32,8 +32,9 @@ def test_login_profile():
     assert resp_profile.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_profile.json()['email'] == resp_login_email, "email does not match"
     assert resp_profile.json()['id'] == resp_login_id, "id does not match"
-    assert resp_profile.json()['role'] == "ROLE_CUSTOMER", "role not customer"    
-
+    assert resp_profile.json()['role'] == "ROLE_CUSTOMER", "role not customer"
+    assert resp_profile.json()['status'] == "ACTIVE", "status not active"
+    
 # cd TrueQRcode/tests
 # pytest test_dev_auth.py -s -vv
 # pytest --count=5 test_dev_auth.py -s -vv

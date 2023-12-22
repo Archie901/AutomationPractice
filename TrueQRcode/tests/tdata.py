@@ -11,7 +11,7 @@ class Requests:
     path_qrSingle = "/api/v1/private/qr-code/"
     path_scan = "/api/v1/public/scans/"
     headers = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8", "Connection": "keep-alive"}
-    access_token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1NfVE9LRU4iLCJzZXNzaW9uSGFzaCI6ImRjMjM0NGJjLThkNTctNDkxYi1iZWI3LTI5Y2E5YWYyZjJkOSIsImVtYWlsIjoibmV3ZXN0QG1haWxpbmF0b3IuY29tIiwiaWF0IjoxNzAyOTM2NDkwLCJleHAiOjE3MDMwMjI4OTB9.WWSXW9w4JrYh9ML9PiEVFSZU0BwWgA8P4OCzK1ctHq0"
+    access_token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1NfVE9LRU4iLCJzZXNzaW9uSGFzaCI6ImM3M2EwNTczLWRiNjgtNDM5Ni1iZDY0LWIwZDcxYmQ4ZmFlMiIsImVtYWlsIjoibmV3ZXN0QG1haWxpbmF0b3IuY29tIiwiaWF0IjoxNzAzMjQ3OTg4LCJleHAiOjE3MDMzMzQzODh9.ip_SGnjQXNgqfXNez7aC4FQcL4FJj_-lDtUDkmAtNms"
 
 class Customers:
     dev_customerCreds = (
@@ -58,7 +58,7 @@ class Scans:
     
     #FROM PREPROD BASE:
 
-    dev_qrIds_Newest = ["5ZDMUQQ5","MYQZ7G8G","NSRHPAUP"]
+    dev_qrIds_Newest = ["EZ492FJT","JTYCM8T4","2H6A3MS5","BMEVT9DB","AWBDPD3Q"]
 
     dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
 

@@ -6,7 +6,7 @@ def test_perform_scan():
     deviceId = Methods.randomizer(Scans.deviceIds)
     lat = Methods.randomizer(Scans.EuropeLats)
     lng = Methods.randomizer(Scans.EuropeLngs)
-    dev_qrId = Methods.randomizer(["D8MXM3NE","FBVMWTX4","V59U5YL2"])
+    dev_qrId = Methods.randomizer(Scans.dev_qrIds_Newest)
     #print("lat", lat, "---", "lng", lng)
     #print("device:", deviceId, "---", "qrId:", dev_qrId)
     payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 33}}

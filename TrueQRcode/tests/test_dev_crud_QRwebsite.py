@@ -28,8 +28,8 @@ def test_create_check_qr_code():
     headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
            "Connection": "keep-alive", "Authorization": "Bearer " + Requests.access_token}
     resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate, data=payload_json, headers=headersToken)
-    print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
     #print(resp_create.text)
+    print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
     assert resp_create.status_code == 200, "status code not 200"
     assert resp_create.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_create.json()['id'] != None, "required field value empty"
@@ -45,8 +45,8 @@ def test_create_check_qr_code():
     cre_totalDownloads = resp_create.json()['totalDownloads']
     
     resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+cre_qr_id, headers=headersToken)
-    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     #print(resp_qrcheck.text)
+    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 200, "status code not 200"
     assert resp_qrcheck.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_qrcheck.json()['id'] == cre_qr_id, "qr id does not match"
@@ -105,14 +105,14 @@ def test_update_check_qr_code():
 def test_delete_check_qr_code():
     headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
            "Connection": "keep-alive", "Authorization": "Bearer " + Requests.access_token}
-    resp_delete = requests.delete(url=Requests.dev_api_domain+Requests.path_qrSingle+cre_qr_id, headers=headersToken)
+    resp_delete = requests.delete(url=Requests.dev_api_domain+Requests.path_qrSingle+upd_qr_id, headers=headersToken)
     #print(resp_delete.text)
     print("delete request:", resp_delete.status_code, "/", resp_delete.reason, "/", resp_delete.elapsed)
     assert resp_delete.status_code == 204, "status code not 204"
 
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+cre_qr_id, headers=headersToken)
-    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
+    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+upd_qr_id, headers=headersToken)
     #print(resp_qrcheck.text)
+    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 400, "status code not 400"
     assert resp_qrcheck.json()['errors'][0]['message'] == "Qr code has been deleted", "delete message is different/absent"
     

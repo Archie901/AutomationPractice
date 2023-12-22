@@ -36,7 +36,7 @@ def create_template():
     assert resp_create.json()['id'] != None, "required field value empty"
     assert resp_create.json()['createdDate'] != None, "required field value empty"
 
-iterations = 5
+iterations = 20
 
 count = 0
 while True:
