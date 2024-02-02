@@ -77,7 +77,7 @@ def create_qr_code():
     assert resp_create.json()['name'] != None, "required field value empty"
     assert resp_create.json()['codeType'] != None, "required field value empty"
 
-iterations = 4
+iterations = 2
 
 count = 0
 while True:

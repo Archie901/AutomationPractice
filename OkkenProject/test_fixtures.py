@@ -1,10 +1,24 @@
 import pytest
 
-@pytest.fixture()
-def some_data():
+@pytest.fixture(scope='module')
+def something():
     """Return answer to ultimate question."""
-    return 42
+    item1 = "slider"
+    item2 = "loher"
+    print(item1)
+    yield item1 + item2
+    print(item1 + item2)
 
-def test_some_data(some_data):
+@pytest.fixture(scope='module')
+def calculate():
     """Use fixture return value in a test."""
-    assert some_data == 42
+    calc1 = 182
+    calc2 = 150
+    return calc1 - calc2
+
+def test_function1(something):
+    print(something)
+
+
+#def test_function2(calculate):
+ #   print(calculate)

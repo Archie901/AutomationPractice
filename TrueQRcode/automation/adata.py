@@ -58,7 +58,7 @@ class Scans:
     
     #FROM PREPROD BASE:
 
-    dev_qrIds_Newest = ["D8MXM3NE","FBVMWTX4","V59U5YL2"]
+    dev_qrIds_Newest = ["5JLE4TB1","EZ492FJT","JTYCM8T4","2H6A3MS5","BMEVT9DB"]
 
     dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
 
