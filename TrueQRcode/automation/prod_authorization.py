@@ -1,10 +1,10 @@
 import requests
 import json
-from adata import Requests, Customers
+from adata import Requests, Creds
 
 def login():
-    customer_email = Customers.prod_customerCreds[0]
-    customer_password = Customers.prod_customerCreds[1]
+    customer_email = Creds.prod_customerCreds[0]
+    customer_password = Creds.prod_customerCreds[1]
     payload_login = {"authType": "TOKEN", "email": customer_email, "password": customer_password}
     payload_json = json.dumps(payload_login)
     resp_login = requests.post(url=Requests.prod_api_domain+Requests.path_login, data=payload_json, headers=Requests.headers)
