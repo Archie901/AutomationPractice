@@ -1,6 +1,23 @@
-import random
 
-class Requests:    
+class QRids:
+
+    #FROM TYPICAL DEV BASE:
+
+    dev_qrIds_Komic = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
+    
+    dev_qrIds_Mykemo = ["VFRRH3BR","JJZXVUZD","LLD9U6YD"]
+    
+    #FROM PREPROD BASE:
+
+    dev_qrIds_Newest = ["EZ492FJT","JTYCM8T4","2H6A3MS5","BMEVT9DB","AWBDPD3Q"]
+
+    dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
+
+    #FROM PROD BASE:
+
+    prod_qrIds_Mykemo = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
+
+class Requests:
     dev_api_domain = "https://api-dev.trueqrcode.com"
     prod_api_domain = "https://api.trueqrcode.com"
     dev_url_domain = "https://dev.trueqrcode.com"   
@@ -10,10 +27,11 @@ class Requests:
     path_qrCreate = "/api/v1/private/qr-code"    
     path_qrSingle = "/api/v1/private/qr-code/"
     path_scan = "/api/v1/public/scans/"
-    headers = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8", "Connection": "keep-alive"}
-    access_token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1NfVE9LRU4iLCJzZXNzaW9uSGFzaCI6IjI1ZmIxZjM5LTdmYTEtNGU2Zi1iNWFhLTRiOTZhODc4YWNkOCIsImVtYWlsIjoibXlrZW1vc0Bwcm90b25tYWlsLmNvbSIsImlhdCI6MTcwMDc3ODA2OCwiZXhwIjoxNzAwODY0NDY4fQ.mOt6MYasCT_lGLABxXFiV7J_aJwJnoqeNg-Is2MP0GY"
+    headers = {"Content-Type": "application/json",
+               "Accept-Encoding": "charset=utf-8",
+               "Connection": "keep-alive"}
 
-class Customers:
+class Creds:
     dev_customerCreds = (
         #FROM TYPICAL DEV BASE:
         ["komic@mailinator.com", "Something555!"],
@@ -25,7 +43,8 @@ class Customers:
         ["fahaw@mailinator.com", "Qwerty123!"],
         #FROM PREPROD BASE:
         ["newest@mailinator.com", "Qwerty123!"],
-        ["selovi@maildrop.cc", "Qwerty123!"]
+        ["selovi@maildrop.cc", "Qwerty123!"],
+        ["munic@maildrop.cc", "Qwerty123!"],
     )
     prod_customerCreds = ["mykemos@protonmail.com", "Something555!"]
 
@@ -50,25 +69,9 @@ class Scans:
     UkraineLats = [50.4101, 48.3794, 49.1223, 51.2146, 50.0004, 48.0266, 51.0909]
     UkraineLngs = [30.5303, 25.9813, 32.8711, 31.9090, 26.7777, 28.7545, 26.9876]
 
-    #FROM TYPICAL DEV BASE:
-
-    dev_qrIds_Komic = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
-    
-    dev_qrIds_Mykemo = ["VFRRH3BR","JJZXVUZD","LLD9U6YD"]
-    
-    #FROM PREPROD BASE:
-
-    dev_qrIds_Newest = ["5ZDMUQQ5","MYQZ7G8G","NSRHPAUP"]
-
-    dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
-
-    #FROM PROD BASE:
-
-    prod_qrIds_Mykemo = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
-    
 class QRtemp:
     sizes = [10, 11, 12, 13, 14, 15, 16]
-    templateNames = ["Reprehe", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
+    templateNames = ["Reprehe ost verden", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
     QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
     frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]
     frameTypes = ["NONE", "BORDER_LABEL_BOTTOM", "BORDER_LABEL_TOP", "ARROW_LABEL_BOTTOM", "ARROW_LABEL_TOP", "BORDER_SPACE_LABEL_BOTTOM",
@@ -103,8 +106,3 @@ class General:
               "grolschie@yahoo.com", "mcsporran@me.com", "andersbr@att.net", "mstrout@outlook.com", "penna@yahoo.ca", "fallorn@optonline.net"]
     telNumbers = ["+31584085974", "+31231264195", "+31649934336", "+31358162470", "+3141877924", "+31368447423", "+31626347344",
                   "+16144700387", "+15348070827", "+18607288366", "+16787342897", "+13854743052", "+14066287751", "+14752095956"]
-
-class Methods:
-    def randomizer(x):
-        randomed = random.choice(x)
-        return randomed

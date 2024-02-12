@@ -1,15 +1,13 @@
 import requests
 import json
 import time
-from adata import Requests, QRtemp, General, Methods
-import dev_authorization
-
-token = dev_authorization.access_token
+from adata import Methods, Requests, QRtemp, General
+from dev_authorization import access_token
 
 headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
-                "Connection": "keep-alive", "Authorization": "Bearer " + token}
+                "Connection": "keep-alive", "Authorization": "Bearer " + access_token}
 
-def create_qr_code():
+def create_qrcode():
     socialLinks = [
     	{"linkType": "FACEBOOK", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
     	{"linkType": "LINKEDIN", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
@@ -73,15 +71,15 @@ def create_qr_code():
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
     assert resp_create.status_code == 200, "status code not 200"
     assert resp_create.headers['Content-Type'] == "application/json", "content type not application/json"
-    assert resp_create.json()['id'] != None, "required field value empty"
-    assert resp_create.json()['name'] != None, "required field value empty"
-    assert resp_create.json()['codeType'] != None, "required field value empty"
+    assert resp_create.json()['id'] != None, "required id field value empty"
+    assert resp_create.json()['name'] != None, "required name field value empty"
+    assert resp_create.json()['codeType'] != None, "required codeType field value empty"
 
-iterations = 5
+iterations = 2
 
 count = 0
 while True:
     count += 1
-    create_qr_code()
+    create_qrcode()
     if count == iterations:
         break

@@ -1,14 +1,16 @@
 import requests
 import json
 import time
-from adata import Methods, Requests, QRtemp, General
-from dev_authorization import access_token
+from adata import Requests, QRtemp, General, Methods
+import dev_authorization
+
+token = dev_authorization.access_token
 
 headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
-                "Connection": "keep-alive", "Authorization": "Bearer " + access_token}
+                "Connection": "keep-alive", "Authorization": "Bearer " + token}
 
-def create_qrcode():
-    payloadCreate = {
+def update_qr_code():
+    payloadUpdate = {
     "codeType": "WEBSITE",
 	"name": Methods.randomizer(QRtemp.QRnames),
 	"design": {
@@ -29,21 +31,21 @@ def create_qrcode():
 		"url": Methods.randomizer(QRtemp.weblinks)
         }
     }
-    payload_json = json.dumps(payloadCreate)
-    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate, data=payload_json, headers=headersToken)
-    #print(resp_create.text)
-    print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
-    assert resp_create.status_code == 200, "status code not 200"
-    assert resp_create.headers['Content-Type'] == "application/json", "content type not application/json"
-    assert resp_create.json()['id'] != None, "required id field value empty"
-    assert resp_create.json()['name'] != None, "required name field value empty"
-    assert resp_create.json()['codeType'] != None, "required codeType field value empty"
+    payload_json = json.dumps(payloadUpdate)
+    resp_update = requests.patch(url=Requests.dev_api_domain+Requests.path_qrSingle+"G5JLJRSC", data=payload_json, headers=headersToken)
+    #print(resp_update.text)
+    print("update request:", resp_update.status_code, "/", resp_update.reason, "/", resp_update.elapsed)
+    assert resp_update.status_code == 200, "status code not 200"
+    assert resp_update.headers['Content-Type'] == "application/json", "content type not application/json"
+    assert resp_update.json()['id'] != None, "required field value empty"
+    assert resp_update.json()['name'] != None, "required field value empty"
+    assert resp_update.json()['codeType'] != None, "required field value empty"
 
-iterations = 3
+iterations = 1
 
 count = 0
 while True:
     count += 1
-    create_qrcode()
+    update_qr_code()
     if count == iterations:
         break
