@@ -1,12 +1,10 @@
 import requests
 import json
 import time
-import dev_authorization
-
-token = dev_authorization.access_token
+from dev_authorization import access_token
 
 headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
-                "Connection": "keep-alive", "Authorization": "Bearer " + token}
+                "Connection": "keep-alive", "Authorization": "Bearer " + access_token}
 
 def some_request():
     resp_request = requests.get(
