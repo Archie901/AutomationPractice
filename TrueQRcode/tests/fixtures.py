@@ -2,7 +2,7 @@ import requests
 import json
 import random
 import pytest
-from data import Requests, Creds
+from data import Requests, Creds, QRtemp, General
 
 def randomizer(x):
     randomed = random.choice(x)
