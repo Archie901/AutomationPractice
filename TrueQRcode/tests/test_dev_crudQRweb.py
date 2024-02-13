@@ -2,7 +2,7 @@ import requests
 import json
 import pytest
 from data import Requests, QRtemp, General
-from fixtures import randomizer, login
+from fixtures import randomizer, login, create_check_qrcode
 
 def test_create_check_qrcode(login):
     payloadCreate = {
@@ -82,8 +82,6 @@ def test_update_check_qrcode(login):
     assert resp_update.json()['id'] != None, "required id field value empty"
     assert resp_update.json()['name'] != None, "required name field value empty"
     assert resp_update.json()['codeType'] != None, "required codeType field value empty"
-    global upd_qr_id
-    upd_qr_id = resp_update.json()['id']
     upd_qr_name = resp_update.json()['name']
     upd_qr_type = resp_update.json()['codeType']
 
@@ -92,17 +90,17 @@ def test_update_check_qrcode(login):
     #print(resp_qrcheck.text)
     assert resp_qrcheck.status_code == 200, "status code not 200"
     assert resp_qrcheck.headers['Content-Type'] == "application/json", "content type not application/json"
-    assert resp_qrcheck.json()['id'] == upd_qr_id, "qr id does not match"
+    assert resp_qrcheck.json()['id'] == pytest.cre_qr_id, "qr id does not match"
     assert resp_qrcheck.json()['name'] == upd_qr_name, "qr name does not match"
     assert resp_qrcheck.json()['codeType'] == upd_qr_type, "qr type does not match"
 
 def test_delete_check_qrcode(login):
-    resp_delete = requests.delete(url=Requests.dev_api_domain+Requests.path_qrSingle+upd_qr_id, headers=pytest.headersToken)
+    resp_delete = requests.delete(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id, headers=pytest.headersToken)
     #print(resp_delete.text)
     print("delete request:", resp_delete.status_code, "/", resp_delete.reason, "/", resp_delete.elapsed)
     assert resp_delete.status_code == 204, "status code not 204"
 
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+upd_qr_id, headers=pytest.headersToken)
+    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id, headers=pytest.headersToken)
     #print(resp_qrcheck.text)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 400, "status code not 400"
