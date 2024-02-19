@@ -1,7 +1,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from Trueqrcode.automation.adata import Requests, Scans
+from adata import Requests, Scans
 
 service = Service()
 

@@ -7,7 +7,7 @@ def test_scan1():
     deviceId = randomizer(Scans.deviceIds)
     lat = randomizer(Scans.EuropeLats)
     lng = randomizer(Scans.EuropeLngs)
-    dev_qrId = randomizer(QRids.dev_qrIds_Newest)
+    dev_qrId = randomizer(QRids.dev_qrIds_Selovi)
     #print("lat", lat, "---", "lng", lng)
     #print("device:", deviceId, "---", "qrId:", dev_qrId)
     payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 33}}
@@ -24,7 +24,7 @@ def test_scan2():
     deviceId = randomizer(Scans.deviceIds)
     lat = randomizer(Scans.AsiaLats)
     lng = randomizer(Scans.AsiaLngs)
-    dev_qrId = randomizer(QRids.dev_qrIds_Newest)
+    dev_qrId = randomizer(QRids.dev_qrIds_Selovi)
     #print("lat", lat, "---", "lng", lng)
     #print("device:", deviceId, "---", "qrId:", dev_qrId)
     payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 33}}
