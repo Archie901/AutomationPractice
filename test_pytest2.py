@@ -1,6 +1,6 @@
 '''Example of pytest module'''
 
-from test_pytest import total, join
+from test_pytest1 import total, join
 
 
 def test_total_empty() -> None:

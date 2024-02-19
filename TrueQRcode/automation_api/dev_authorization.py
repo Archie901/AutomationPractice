@@ -1,6 +1,6 @@
 import requests
 import json
-from adata import Requests, Creds
+from adata import Creds, Requests
 
 def login():
     customer_email = Creds.dev_customerCreds[8][0]
