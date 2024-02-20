@@ -14,7 +14,8 @@ def login():
     customer_password = Creds.dev_customerCreds[8][1]
     payload_login = {"authType": "TOKEN", "email": customer_email, "password": customer_password}
     payload_json = json.dumps(payload_login)
-    resp_login = requests.post(url=Requests.dev_api_domain+Requests.path_login, data=payload_json, headers=Requests.headers)
+    resp_login = requests.post(url=Requests.dev_api_domain+Requests.path_login,
+                               data=payload_json, headers=Requests.headers)
     #print(resp_login.text)
     print("login request:", resp_login.status_code, "/", resp_login.reason, "/", resp_login.elapsed)
     print("email from login response:", f"-- {resp_login.json()["email"]} --")
@@ -57,7 +58,8 @@ def create_check_qrcode(login):
         }
     }
     payload_json = json.dumps(payloadCreate)
-    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate, data=payload_json, headers=pytest.headersToken)
+    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate,
+                                data=payload_json, headers=pytest.headersToken)
     #print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
     assert resp_create.status_code == 200, "status code not 200"
@@ -71,7 +73,8 @@ def create_check_qrcode(login):
     cre_qr_name = resp_create.json()['name']
     cre_qr_type = resp_create.json()['codeType']
     
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id, headers=pytest.headersToken)
+    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+                                headers=pytest.headersToken)
     #print(resp_qrcheck.text)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 200, "status code not 200"

@@ -27,7 +27,8 @@ def test_create_check_qrcode(login):
         }
     }
     payload_json = json.dumps(payloadCreate)
-    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate, data=payload_json, headers=pytest.headersToken)
+    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate,
+                                data=payload_json, headers=pytest.headersToken)
     #print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
     assert resp_create.status_code == 200, "status code not 200"
@@ -41,7 +42,8 @@ def test_create_check_qrcode(login):
     cre_qr_name = resp_create.json()['name']
     cre_qr_type = resp_create.json()['codeType']
     
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id, headers=pytest.headersToken)
+    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+                                headers=pytest.headersToken)
     #print(resp_qrcheck.text)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 200, "status code not 200"
@@ -85,7 +87,8 @@ def test_update_check_qrcode(login, create_check_qrcode):
     upd_qr_name = resp_update.json()['name']
     upd_qr_type = resp_update.json()['codeType']
 
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id, headers=pytest.headersToken)
+    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+                                headers=pytest.headersToken)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     #print(resp_qrcheck.text)
     assert resp_qrcheck.status_code == 200, "status code not 200"
@@ -95,12 +98,14 @@ def test_update_check_qrcode(login, create_check_qrcode):
     assert resp_qrcheck.json()['codeType'] == upd_qr_type, "qr type does not match"
 
 def test_delete_check_qrcode(login, create_check_qrcode):
-    resp_delete = requests.delete(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id, headers=pytest.headersToken)
+    resp_delete = requests.delete(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+                                  headers=pytest.headersToken)
     #print(resp_delete.text)
     print("delete request:", resp_delete.status_code, "/", resp_delete.reason, "/", resp_delete.elapsed)
     assert resp_delete.status_code == 204, "status code not 204"
 
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id, headers=pytest.headersToken)
+    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+                                headers=pytest.headersToken)
     #print(resp_qrcheck.text)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 400, "status code not 400"

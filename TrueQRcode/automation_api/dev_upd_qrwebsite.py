@@ -30,7 +30,8 @@ def update_qrcode():
         }
     }
     payload_json = json.dumps(payloadUpdate)
-    resp_update = requests.patch(url=Requests.dev_api_domain+Requests.path_qrSingle+"G5JLJRSC", data=payload_json, headers=headersToken)
+    resp_update = requests.patch(url=Requests.dev_api_domain+Requests.path_qrSingle+"G5JLJRSC",
+                                 data=payload_json, headers=headersToken)
     #print(resp_update.text)
     print("update request:", resp_update.status_code, "/", resp_update.reason, "/", resp_update.elapsed)
     assert resp_update.status_code == 200, "status code not 200"
