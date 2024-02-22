@@ -1,10 +1,12 @@
 import requests
 import pytest
-from data import Requests
+import _main
+import adata as ad
 from fixtures import login
 
 def test_profile1(login):
-    resp_profile = requests.get(url=Requests.dev_api_domain+Requests.path_profile, headers=pytest.headersToken)
+    resp_profile = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_profile,
+                                headers=pytest.headersToken)
     #print(resp_profile.text)
     print("profile request:", resp_profile.status_code, "/", resp_profile.reason, "/", resp_profile.elapsed)
     print("email from profile response:", f"-- {resp_profile.json()['email']} --")
@@ -16,7 +18,8 @@ def test_profile1(login):
     assert resp_profile.json()['status'] == "ACTIVE", "status not active"
     
 def test_profile2(login):
-    resp_profile = requests.get(url=Requests.dev_api_domain+Requests.path_profile, headers=pytest.headersToken)
+    resp_profile = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_profile,
+                                headers=pytest.headersToken)
     #print(resp_profile.text)
     print("profile request:", resp_profile.status_code, "/", resp_profile.reason, "/", resp_profile.elapsed)
     print("email from profile response:", f"-- {resp_profile.json()['email']} --")
