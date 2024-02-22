@@ -1,7 +1,8 @@
 import requests
 import json
 import time
-from adata import Methods, Requests, QRtemp, General
+import _main
+import adata as ad
 from dev_authorization import access_token
 
 headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
@@ -10,23 +11,23 @@ headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=
 def create_template():
     payloadCreate = {
     "template": {
-        "title": Methods.randomizer(QRtemp.templateNames),
+        "title": ad.Methods.randomizer(ad.QRtemp.templateNames),
         },
         "logoSize": 20,
-        "frameTextSize": Methods.randomizer(QRtemp.sizes),
-		"frameText": Methods.randomizer(QRtemp.frameTexts),		
-		"frameTextColor": Methods.randomizer(General.mediumColors),
-		"frameBackgroundColor": Methods.randomizer(General.darkColors),
-		"backgroundColor": Methods.randomizer(General.lightColors),
-		"patternColor": Methods.randomizer(General.darkColors),
-		"cornerColor": Methods.randomizer(General.darkColors),
-		"frameType": Methods.randomizer(QRtemp.frameTypes),
-		"patternType": Methods.randomizer(QRtemp.patternTypes),
-		"cornerType": Methods.randomizer(QRtemp.cornerTypes),
-        "libraryId": Methods.randomizer(QRtemp.library_ids),
+        "frameTextSize": ad.Methods.randomizer(ad.QRtemp.sizes),
+		"frameText": ad.Methods.randomizer(ad.QRtemp.frameTexts),		
+		"frameTextColor": ad.Methods.randomizer(ad.General.mediumColors),
+		"frameBackgroundColor": ad.Methods.randomizer(ad.General.darkColors),
+		"backgroundColor": ad.Methods.randomizer(ad.General.lightColors),
+		"patternColor": ad.Methods.randomizer(ad.General.darkColors),
+		"cornerColor": ad.Methods.randomizer(ad.General.darkColors),
+		"frameType": ad.Methods.randomizer(ad.QRtemp.frameTypes),
+		"patternType": ad.Methods.randomizer(ad.QRtemp.patternTypes),
+		"cornerType": ad.Methods.randomizer(ad.QRtemp.cornerTypes),
+        "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
     }
     payload_json = json.dumps(payloadCreate)
-    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_tempCreate,
+    resp_create = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_tempCreate,
                                 data=payload_json, headers=headersToken)
     #print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)    
@@ -35,7 +36,7 @@ def create_template():
     assert resp_create.json()['id'] != None, "required id field value empty"
     assert resp_create.json()['createdDate'] != None, "required createdDate field value empty"
 
-iterations = 1
+iterations = 3
 
 count = 0
 while True:

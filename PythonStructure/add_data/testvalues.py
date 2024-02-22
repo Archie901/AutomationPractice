@@ -14,7 +14,7 @@ class Issues:
     UkraineLngs = [30.5303, 25.9813, 32.8711, 31.9090, 26.7777, 28.7545, 26.9876]
 
 class Something:
-    sizes = [10, 11, 12, 13, 14, 15, 16]
+    sizes = [10, 11, 12, 13, 14, 15, 16, 543534, 5345, 65565, 76876867]
     templateNames = ["Reprehe ost verden", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
     QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
     frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]

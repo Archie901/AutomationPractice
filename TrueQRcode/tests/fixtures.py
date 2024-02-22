@@ -2,7 +2,8 @@ import requests
 import json
 import random
 import pytest
-from data import Requests, Creds, QRtemp, General
+import _main
+import adata as ad
 
 def randomizer(x):
     randomed = random.choice(x)
@@ -10,12 +11,12 @@ def randomizer(x):
 
 @pytest.fixture(scope='session')
 def login():
-    customer_email = Creds.dev_customerCreds[8][0]
-    customer_password = Creds.dev_customerCreds[8][1]
+    customer_email = ad.Creds.dev_customerCreds[8][0]
+    customer_password = ad.Creds.dev_customerCreds[8][1]
     payload_login = {"authType": "TOKEN", "email": customer_email, "password": customer_password}
     payload_json = json.dumps(payload_login)
-    resp_login = requests.post(url=Requests.dev_api_domain+Requests.path_login,
-                               data=payload_json, headers=Requests.headers)
+    resp_login = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_login,
+                               data=payload_json, headers=ad.Requests.headers)
     #print(resp_login.text)
     print("login request:", resp_login.status_code, "/", resp_login.reason, "/", resp_login.elapsed)
     print("email from login response:", f"-- {resp_login.json()["email"]} --")
@@ -33,32 +34,34 @@ def login():
         "Connection": "keep-alive",
         "Authorization": "Bearer " + access_token
     }
+    yield pytest.headersToken
+    print("Tearing down the login fixture")
 
 @pytest.fixture(scope='module')
 def create_check_qrcode(login):
     payloadCreate = {
     "codeType": "WEBSITE",
-	"name": randomizer(QRtemp.QRnames),
+	"name": randomizer(ad.QRtemp.QRnames),
 	"design": {
 		"logoSize": 20,
-        "frameTextSize": randomizer(QRtemp.sizes),
-		"frameText": randomizer(QRtemp.frameTexts),		
-		"frameTextColor": randomizer(General.mediumColors),
-		"frameBackgroundColor": randomizer(General.darkColors),
-		"backgroundColor": randomizer(General.lightColors),
-		"patternColor": randomizer(General.darkColors),
-		"cornerColor": randomizer(General.darkColors),
-		"frameType": randomizer(QRtemp.frameTypes),
-		"patternType": randomizer(QRtemp.patternTypes),
-		"cornerType": randomizer(QRtemp.cornerTypes),
-        "libraryId": randomizer(QRtemp.library_ids),
+        "frameTextSize": randomizer(ad.QRtemp.sizes),
+		"frameText": randomizer(ad.QRtemp.frameTexts),		
+		"frameTextColor": randomizer(ad.General.mediumColors),
+		"frameBackgroundColor": randomizer(ad.General.darkColors),
+		"backgroundColor": randomizer(ad.General.lightColors),
+		"patternColor": randomizer(ad.General.darkColors),
+		"cornerColor": randomizer(ad.General.darkColors),
+		"frameType": randomizer(ad.QRtemp.frameTypes),
+		"patternType": randomizer(ad.QRtemp.patternTypes),
+		"cornerType": randomizer(ad.QRtemp.cornerTypes),
+        "libraryId": randomizer(ad.QRtemp.library_ids),
         },
 	"website": {
-		"url": randomizer(QRtemp.weblinks)
+		"url": randomizer(ad.QRtemp.weblinks)
         }
     }
     payload_json = json.dumps(payloadCreate)
-    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate,
+    resp_create = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_qrCreate,
                                 data=payload_json, headers=pytest.headersToken)
     #print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
@@ -73,7 +76,7 @@ def create_check_qrcode(login):
     cre_qr_name = resp_create.json()['name']
     cre_qr_type = resp_create.json()['codeType']
     
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+    resp_qrcheck = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                 headers=pytest.headersToken)
     #print(resp_qrcheck.text)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)

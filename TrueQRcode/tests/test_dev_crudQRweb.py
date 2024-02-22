@@ -1,33 +1,34 @@
 import requests
 import json
 import pytest
-from data import Requests, QRtemp, General
+import _main
+import adata as ad
 from fixtures import randomizer, login, create_check_qrcode
 
 def test_create_check_qrcode(login):
     payloadCreate = {
     "codeType": "WEBSITE",
-	"name": randomizer(QRtemp.QRnames),
+	"name": randomizer(ad.QRtemp.QRnames),
 	"design": {
 		"logoSize": 20,
-        "frameTextSize": randomizer(QRtemp.sizes),
-		"frameText": randomizer(QRtemp.frameTexts),		
-		"frameTextColor": randomizer(General.mediumColors),
-		"frameBackgroundColor": randomizer(General.darkColors),
-		"backgroundColor": randomizer(General.lightColors),
-		"patternColor": randomizer(General.darkColors),
-		"cornerColor": randomizer(General.darkColors),
-		"frameType": randomizer(QRtemp.frameTypes),
-		"patternType": randomizer(QRtemp.patternTypes),
-		"cornerType": randomizer(QRtemp.cornerTypes),
-        "libraryId": randomizer(QRtemp.library_ids),
+        "frameTextSize": randomizer(ad.QRtemp.sizes),
+		"frameText": randomizer(ad.QRtemp.frameTexts),		
+		"frameTextColor": randomizer(ad.General.mediumColors),
+		"frameBackgroundColor": randomizer(ad.General.darkColors),
+		"backgroundColor": randomizer(ad.General.lightColors),
+		"patternColor": randomizer(ad.General.darkColors),
+		"cornerColor": randomizer(ad.General.darkColors),
+		"frameType": randomizer(ad.QRtemp.frameTypes),
+		"patternType": randomizer(ad.QRtemp.patternTypes),
+		"cornerType": randomizer(ad.QRtemp.cornerTypes),
+        "libraryId": randomizer(ad.QRtemp.library_ids),
         },
 	"website": {
-		"url": randomizer(QRtemp.weblinks)
+		"url": randomizer(ad.QRtemp.weblinks)
         }
     }
     payload_json = json.dumps(payloadCreate)
-    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate,
+    resp_create = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_qrCreate,
                                 data=payload_json, headers=pytest.headersToken)
     #print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
@@ -42,7 +43,7 @@ def test_create_check_qrcode(login):
     cre_qr_name = resp_create.json()['name']
     cre_qr_type = resp_create.json()['codeType']
     
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+    resp_qrcheck = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                 headers=pytest.headersToken)
     #print(resp_qrcheck.text)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
@@ -55,27 +56,27 @@ def test_create_check_qrcode(login):
 def test_update_check_qrcode(login, create_check_qrcode):
     payloadUpdate = {
     "codeType": "WEBSITE",
-	"name": randomizer(QRtemp.QRnames),
+	"name": randomizer(ad.QRtemp.QRnames),
 	"design": {
 		"logoSize": 20,
-        "frameTextSize": randomizer(QRtemp.sizes),
-		"frameText": randomizer(QRtemp.frameTexts),		
-		"frameTextColor": randomizer(General.mediumColors),
-		"frameBackgroundColor": randomizer(General.darkColors),
-		"backgroundColor": randomizer(General.lightColors),
-		"patternColor": randomizer(General.darkColors),
-		"cornerColor": randomizer(General.darkColors),
-		"frameType": randomizer(QRtemp.frameTypes),
-		"patternType": randomizer(QRtemp.patternTypes),
-		"cornerType": randomizer(QRtemp.cornerTypes),
-        "libraryId": randomizer(QRtemp.library_ids),
+        "frameTextSize": randomizer(ad.QRtemp.sizes),
+		"frameText": randomizer(ad.QRtemp.frameTexts),		
+		"frameTextColor": randomizer(ad.General.mediumColors),
+		"frameBackgroundColor": randomizer(ad.General.darkColors),
+		"backgroundColor": randomizer(ad.General.lightColors),
+		"patternColor": randomizer(ad.General.darkColors),
+		"cornerColor": randomizer(ad.General.darkColors),
+		"frameType": randomizer(ad.QRtemp.frameTypes),
+		"patternType": randomizer(ad.QRtemp.patternTypes),
+		"cornerType": randomizer(ad.QRtemp.cornerTypes),
+        "libraryId": randomizer(ad.QRtemp.library_ids),
         },
 	"website": {
-		"url": randomizer(QRtemp.weblinks)
+		"url": randomizer(ad.QRtemp.weblinks)
         }
     }
     payload_json = json.dumps(payloadUpdate)
-    resp_update = requests.patch(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+    resp_update = requests.patch(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                  data=payload_json, headers=pytest.headersToken)
     #print(resp_update.text)
     print("update request:", resp_update.status_code, "/", resp_update.reason, "/", resp_update.elapsed)
@@ -87,7 +88,7 @@ def test_update_check_qrcode(login, create_check_qrcode):
     upd_qr_name = resp_update.json()['name']
     upd_qr_type = resp_update.json()['codeType']
 
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+    resp_qrcheck = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                 headers=pytest.headersToken)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
     #print(resp_qrcheck.text)
@@ -98,13 +99,13 @@ def test_update_check_qrcode(login, create_check_qrcode):
     assert resp_qrcheck.json()['codeType'] == upd_qr_type, "qr type does not match"
 
 def test_delete_check_qrcode(login, create_check_qrcode):
-    resp_delete = requests.delete(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+    resp_delete = requests.delete(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                   headers=pytest.headersToken)
     #print(resp_delete.text)
     print("delete request:", resp_delete.status_code, "/", resp_delete.reason, "/", resp_delete.elapsed)
     assert resp_delete.status_code == 204, "status code not 204"
 
-    resp_qrcheck = requests.get(url=Requests.dev_api_domain+Requests.path_qrSingle+pytest.cre_qr_id,
+    resp_qrcheck = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                 headers=pytest.headersToken)
     #print(resp_qrcheck.text)
     print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)

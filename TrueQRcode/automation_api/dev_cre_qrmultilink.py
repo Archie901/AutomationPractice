@@ -1,7 +1,8 @@
 import requests
 import json
 import time
-from adata import Methods, Requests, QRtemp, General
+import _main
+import adata as ad
 from dev_authorization import access_token
 
 headersToken = {"Content-Type": "application/json", "Accept-Encoding": "charset=utf-8",
@@ -11,55 +12,55 @@ def create_qrcode():
     socialLinks = [
     	#{"linkType": "FACEBOOK", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
     	#{"linkType": "LINKEDIN", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
-    	{"linkType": "TIKTOK", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
+    	{"linkType": "TIKTOK", "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": "social"},
     	#{"linkType": "TELEGRAM", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
-    	{"linkType": "WHATSAPP", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
-    	{"linkType": "INSTAGRAM", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
+    	{"linkType": "WHATSAPP", "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": "social"},
+    	{"linkType": "INSTAGRAM", "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": "social"},
     	#{"linkType": "YOUTUBE", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"},
-    	{"linkType": "TWITTER", "url": Methods.randomizer(QRtemp.weblinks), "title": "social"}
+    	{"linkType": "TWITTER", "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": "social"}
     ]
     customLinks = [
-        {"library": {}, "libraryId": Methods.randomizer(QRtemp.library_ids),
-         "url": Methods.randomizer(QRtemp.weblinks), "title": Methods.randomizer(General.words), "linkType": "CUSTOM"},
-        {"library": {}, "libraryId": Methods.randomizer(QRtemp.library_ids),
-         "url": Methods.randomizer(QRtemp.weblinks), "title": Methods.randomizer(General.words), "linkType": "CUSTOM"},
-        {"library": {}, "libraryId": Methods.randomizer(QRtemp.library_ids),
-         "url": Methods.randomizer(QRtemp.weblinks), "title": Methods.randomizer(General.words), "linkType": "CUSTOM"},
+        {"library": {}, "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+         "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": ad.Methods.randomizer(ad.General.words), "linkType": "CUSTOM"},
+        {"library": {}, "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+         "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": ad.Methods.randomizer(ad.General.words), "linkType": "CUSTOM"},
+        {"library": {}, "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+         "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": ad.Methods.randomizer(ad.General.words), "linkType": "CUSTOM"},
         ]
     payloadCreate = {
     "codeType": "MULTILINK",
-	"name": Methods.randomizer(QRtemp.QRnames),
+	"name": ad.Methods.randomizer(ad.QRtemp.QRnames),
 	"design": {
 		"logoSize": 20,
-        "frameTextSize": Methods.randomizer(QRtemp.sizes),
-		"frameText": Methods.randomizer(QRtemp.frameTexts),		
-		"frameTextColor": Methods.randomizer(General.mediumColors),
-		"frameBackgroundColor": Methods.randomizer(General.darkColors),
-		"backgroundColor": Methods.randomizer(General.lightColors),
-		"patternColor": Methods.randomizer(General.darkColors),
-		"cornerColor": Methods.randomizer(General.darkColors),
-		"frameType": Methods.randomizer(QRtemp.frameTypes),
-		"patternType": Methods.randomizer(QRtemp.patternTypes),
-		"cornerType": Methods.randomizer(QRtemp.cornerTypes),
-        "libraryId": Methods.randomizer(QRtemp.library_ids),
+        "frameTextSize": ad.Methods.randomizer(ad.QRtemp.sizes),
+		"frameText": ad.Methods.randomizer(ad.QRtemp.frameTexts),		
+		"frameTextColor": ad.Methods.randomizer(ad.General.mediumColors),
+		"frameBackgroundColor": ad.Methods.randomizer(ad.General.darkColors),
+		"backgroundColor": ad.Methods.randomizer(ad.General.lightColors),
+		"patternColor": ad.Methods.randomizer(ad.General.darkColors),
+		"cornerColor": ad.Methods.randomizer(ad.General.darkColors),
+		"frameType": ad.Methods.randomizer(ad.QRtemp.frameTypes),
+		"patternType": ad.Methods.randomizer(ad.QRtemp.patternTypes),
+		"cornerType": ad.Methods.randomizer(ad.QRtemp.cornerTypes),
+        "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
         },
     "multilink": {
         "socialLinks": socialLinks,
         "customLinks": customLinks,
-        "buttonBgColor": Methods.randomizer(General.lightColors),
-		"buttonTextColor": Methods.randomizer(General.darkColors),
-		"buttonHoverColor": Methods.randomizer(General.mediumColors),
-		"buttonBorderColor": Methods.randomizer(General.darkColors),
-		"designDescriptionColor": Methods.randomizer(General.lightColors),
-		"designTitleColor": Methods.randomizer(General.lightColors),
-		"designBgColor": Methods.randomizer(General.darkColors),
-		"libraryId": Methods.randomizer(QRtemp.library_ids),
-		"description": Methods.randomizer(General.words),
-		"title": Methods.randomizer(General.persons),
+        "buttonBgColor": ad.Methods.randomizer(ad.General.lightColors),
+		"buttonTextColor": ad.Methods.randomizer(ad.General.darkColors),
+		"buttonHoverColor": ad.Methods.randomizer(ad.General.mediumColors),
+		"buttonBorderColor": ad.Methods.randomizer(ad.General.darkColors),
+		"designDescriptionColor": ad.Methods.randomizer(ad.General.lightColors),
+		"designTitleColor": ad.Methods.randomizer(ad.General.lightColors),
+		"designBgColor": ad.Methods.randomizer(ad.General.darkColors),
+		"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+		"description": ad.Methods.randomizer(ad.General.words),
+		"title": ad.Methods.randomizer(ad.General.persons),
         },
     }
     payload_json = json.dumps(payloadCreate)
-    resp_create = requests.post(url=Requests.dev_api_domain+Requests.path_qrCreate,
+    resp_create = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_qrCreate,
                                 data=payload_json, headers=headersToken)
     #print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)    
