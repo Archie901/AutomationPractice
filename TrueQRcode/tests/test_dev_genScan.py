@@ -1,5 +1,6 @@
 import requests
 import json
+import pytest
 import _main
 import adata as ad
 from fixtures import randomizer
@@ -43,4 +44,6 @@ def test_scan2():
 # cd Trueqrcode/tests
 # pytest -s -vv test_dev_genScan.py
 # pytest -s -vv --setup-show test_dev_genScan.py
-# pytest -s -vv --count=5 test_dev_genScan.py
+    
+if __name__ == '__main__':
+    pytest.main(["-s", "-vv", "Trueqrcode/tests/test_dev_genScan.py"])
