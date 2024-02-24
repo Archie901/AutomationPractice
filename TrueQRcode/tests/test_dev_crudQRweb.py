@@ -53,7 +53,7 @@ def test_create_check_qrcode(login):
     assert resp_qrcheck.json()['name'] == cre_qr_name, "qr name does not match"
     assert resp_qrcheck.json()['codeType'] == cre_qr_type, "qr type does not match"
 
-def test_update_check_qrcode(login, create_check_qrcode):
+def test_update_check_qrcode(login):
     payloadUpdate = {
     "codeType": "WEBSITE",
 	"name": randomizer(ad.QRtemp.QRnames),
@@ -98,7 +98,7 @@ def test_update_check_qrcode(login, create_check_qrcode):
     assert resp_qrcheck.json()['name'] == upd_qr_name, "qr name does not match"
     assert resp_qrcheck.json()['codeType'] == upd_qr_type, "qr type does not match"
 
-def test_delete_check_qrcode(login, create_check_qrcode):
+def test_delete_check_qrcode(login):
     resp_delete = requests.delete(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                   headers=pytest.headersToken)
     #print(resp_delete.text)
@@ -115,4 +115,6 @@ def test_delete_check_qrcode(login, create_check_qrcode):
 # cd Trueqrcode/tests
 # pytest -s -vv test_dev_crudQRweb.py
 # pytest -s -vv --setup-show test_dev_crudQRweb.py
-# pytest -s -vv --count=5 test_dev_crudQRweb.py
+    
+if __name__ == '__main__':
+    pytest.main(["-s", "-vv", "--setup-show", "Trueqrcode/tests/test_dev_crudQRweb.py"])

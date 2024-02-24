@@ -37,7 +37,7 @@ def login():
     yield pytest.headersToken
     print("Tearing down the login fixture")
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='function')
 def create_check_qrcode(login):
     payloadCreate = {
     "codeType": "WEBSITE",
