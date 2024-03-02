@@ -13,7 +13,7 @@ def create_user():
     payloadCreate = {
         "orgId": ap.Requests.org_id,
         "roleId": ap.Methods.randomizer([2, 3, 4]),
-        "email": ap.Methods.randomizer(ap.General.emails),
+        "email": ap.Methods.randomizer(ap.General.emails2),
         "password": "Qwerty123!",
         "phone": "+1 438-482-8066",
         "firstName": ap.Methods.randomizer(ap.General.firstNames),
@@ -33,7 +33,7 @@ def create_user():
     assert resp_create.json()['email'] != None, "required name field value empty"
     assert resp_create.json()['roleId'] != None, "required codeType field value empty"
 
-iterations = 1
+iterations = 5
 
 count = 0
 while True:
