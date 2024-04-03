@@ -97,4 +97,4 @@ def test_login_profile2(email, password):
 # pytest -s -vv --count=5 test_dev_auth.py
     
 if __name__ == '__main__':
-    pytest.main(["-s", "-vv", "Trueqrcode/tests/test_dev_auth.py"])
+    pytest.main(["-s", "-v", "Trueqrcode/tests/test_dev_auth.py"])
