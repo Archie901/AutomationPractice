@@ -46,4 +46,4 @@ def test_scan2():
 # pytest -s -vv --setup-show test_dev_genScan.py
     
 if __name__ == '__main__':
-    pytest.main(["-s", "-vv", "Trueqrcode/tests/test_dev_genScan.py"])
+    pytest.main(["-s", "-v", "Trueqrcode/tests/test_dev_genScan.py"])
