@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+import _experiments
 
 #service = Service()
 
@@ -25,21 +26,22 @@ wait.until(expected_conditions.visibility_of((claim_button)))
 
 claim_button.click()
 
-#driver.implicitly_wait(10)
+driver.implicitly_wait(2)
 
-inpatient_button = driver.find_element(By.XPATH, "//button/p[contains(text(), 'Inpatient Facilities')]")
-
-wait.until(expected_conditions.presence_of_element_located((By.XPATH, "//button/p[contains(text(), 'Inpatient Facilities')]")))
+button_lvl1 = driver.find_element(By.XPATH, "//button/p[contains(text(), '" +_experiments.random_lvl1['title']+ "')]")
 
 time.sleep(1)
 
-inpatient_button.click()
+button_lvl1.click()
 
 time.sleep(1)
 
-Tex1 = 'Specialized Diagnostic Unit'
+button_lvl2 = driver.find_element(By.XPATH, "//button/p[contains(text(), '" +_experiments.random_lvl2['title']+ "')]")
 
-inpatient_buttonlevel3_1 = driver.find_element(By.XPATH, "//button/p[contains(text(), '" +Tex1+ "')]")
+time.sleep(2)
+
+
+'''
 inpatient_buttonlevel3_2 = driver.find_element(By.XPATH, "//button/p[contains(text(), 'Inpatient Units')]")
 inpatient_buttonlevel3_3 = driver.find_element(By.XPATH, "//button/p[contains(text(), 'Laboratory Department')]")
 inpatient_buttonlevel3_4 = driver.find_element(By.XPATH, "//button/p[contains(text(), 'Imaging Department')]")
@@ -69,6 +71,6 @@ continue_button2.click()
 time.sleep(1)
 
 if driver.find_element(By.XPATH, "//span[contains(text(), '" +Tex1+ "')]"):
-    print("Element exists! - 1")
+    print("Element exists! - 1")'''
 
 driver.quit()
