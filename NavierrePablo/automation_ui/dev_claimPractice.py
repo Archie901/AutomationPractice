@@ -1,10 +1,10 @@
 import time
+import random
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-import _experiments
 
 #service = Service()
 
@@ -28,17 +28,29 @@ claim_button.click()
 
 driver.implicitly_wait(2)
 
-button_lvl1 = driver.find_element(By.XPATH, "//button/p[contains(text(), '" +_experiments.random_lvl1['title']+ "')]")
+all_lvl1_elements = driver.find_elements(By.XPATH, "//div/button/p[contains(@class, 'MuiTypography-body1 grow')]")
+
+print(all_lvl1_elements)
+
+def randomizer(x):
+    randomed = random.choice(x)
+    return randomed
+
+random_element = randomizer(all_lvl1_elements)
+
+print(random_element)
+
+#button_lvl1 = driver.find_element(By.XPATH, "//div/button/p[contains(@class, 'MuiTypography-body1 grow')]")
 
 time.sleep(1)
 
-button_lvl1.click()
+random_element.click()
 
 time.sleep(1)
 
-button_lvl2 = driver.find_element(By.XPATH, "//button/p[contains(text(), '" +_experiments.random_lvl2['title']+ "')]")
+'''button_lvl2 = driver.find_element(By.XPATH, "//button/p[contains(text(), '" +_experiments.random_lvl2['title']+ "')]")
 
-time.sleep(2)
+time.sleep(2)'''
 
 
 '''
