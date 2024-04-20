@@ -6,10 +6,10 @@ import adata as ad
 
 def scan():
     deviceId = ad.Methods.randomizer(ad.Scans.deviceIds)
-    lat = ad.Methods.randomizer(ad.Scans.NorthAmerLats)
-    lng = ad.Methods.randomizer(ad.Scans.NorthAmerLngs)
-    dev_qrId = ad.Methods.randomizer(ad.QRids.dev_qrIds_Selovi)
-    #dev_qrId = ad.Methods.randomizer(["D8MXM3NE","FBVMWTX4","V59U5YL2"])
+    lat = ad.Methods.randomizer(ad.Scans.SouthAmerLats)
+    lng = ad.Methods.randomizer(ad.Scans.SouthAmerLngs)
+    #dev_qrId = ad.Methods.randomizer(ad.QRids.dev_qrIds_Selovi)
+    dev_qrId = ad.Methods.randomizer(["HULYPYDN","PSY3YBDE","2YFHYHLH"])
     print("lat", lat, "---", "lng", lng)
     #print("device:", deviceId, "---", "qrId:", dev_qrId)
     payload_scan = {"deviceId": deviceId, "gps": {"lat": lat, "lng": lng, "accuracy": 100}}
@@ -23,7 +23,7 @@ def scan():
     assert resp_scan.json()['id'] != None, "required id field value empty"
     assert resp_scan.json()['name'] != None, "required name field value empty"
 
-iterations = 5
+iterations = 15
 
 count = 0
 while True:

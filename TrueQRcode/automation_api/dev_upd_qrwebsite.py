@@ -24,14 +24,14 @@ def update_qrcode():
 		"frameType": ad.Methods.randomizer(ad.QRtemp.frameTypes),
 		"patternType": ad.Methods.randomizer(ad.QRtemp.patternTypes),
 		"cornerType": ad.Methods.randomizer(ad.QRtemp.cornerTypes),
-        "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        #"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
         },
 	"website": {
 		"url": ad.Methods.randomizer(ad.QRtemp.weblinks)
         }
     }
     payload_json = json.dumps(payloadUpdate)
-    resp_update = requests.patch(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+"V68TBPE4",
+    resp_update = requests.patch(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+"PS24VGMY",
                                  data=payload_json, headers=headersToken)
     #print(resp_update.text)
     print("update request:", resp_update.status_code, "/", resp_update.reason, "/", resp_update.elapsed)

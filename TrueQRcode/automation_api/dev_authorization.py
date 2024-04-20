@@ -4,8 +4,10 @@ import _main
 import adata as ad
 
 def login():
-    customer_email = ad.Creds.dev_customerCreds[8][0]
-    customer_password = ad.Creds.dev_customerCreds[8][1]
+    customer_email = ad.Creds.dev_customerCreds[0][0]
+    #customer_email = 'sistersol@maildrop.cc'
+    customer_password = ad.Creds.dev_customerCreds[0][1]
+    #customer_password = 'Qwerty123!'
     payload_login = {"authType": "TOKEN", "email": customer_email, "password": customer_password}
     payload_json = json.dumps(payload_login)
     resp_login = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_login,

@@ -33,7 +33,7 @@ def create_qrcode():
     payload_json = json.dumps(payloadCreate)
     resp_create = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_qrCreate,
                                 data=payload_json, headers=headersToken)
-    #print(resp_create.text)
+    print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
     assert resp_create.status_code == 200, "status code not 200"
     assert resp_create.headers['Content-Type'] == "application/json", "content type not application/json"
