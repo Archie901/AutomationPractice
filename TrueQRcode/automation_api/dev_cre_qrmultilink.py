@@ -20,11 +20,11 @@ def create_qrcode():
     	{"linkType": "TWITTER", "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": "social"}
     ]
     customLinks = [
-        {"library": {}, "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        {"library": {}, #"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
          "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": ad.Methods.randomizer(ad.General.words), "linkType": "CUSTOM"},
-        {"library": {}, "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        {"library": {}, #"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
          "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": ad.Methods.randomizer(ad.General.words), "linkType": "CUSTOM"},
-        {"library": {}, "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        {"library": {}, #"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
          "url": ad.Methods.randomizer(ad.QRtemp.weblinks), "title": ad.Methods.randomizer(ad.General.words), "linkType": "CUSTOM"},
         ]
     payloadCreate = {
@@ -70,7 +70,7 @@ def create_qrcode():
     assert resp_create.json()['name'] != None, "required field value empty"
     assert resp_create.json()['codeType'] != None, "required field value empty"
 
-iterations = 2
+iterations = 5
 
 count = 0
 while True:

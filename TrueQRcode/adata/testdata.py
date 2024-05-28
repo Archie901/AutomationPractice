@@ -7,21 +7,9 @@ class Methods:
 
 class QRids:
 
-    #FROM TYPICAL DEV BASE:
+    dev_qrIds = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
 
-    dev_qrIds_Komic = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
-    
-    dev_qrIds_Mykemo = ["VFRRH3BR","JJZXVUZD","LLD9U6YD"]
-    
-    #FROM PREPROD BASE:
-
-    dev_qrIds_Newest = ["EZ492FJT","JTYCM8T4","2H6A3MS5","BMEVT9DB","AWBDPD3Q"]
-
-    dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
-
-    #FROM PROD BASE:
-
-    prod_qrIds_Mykemo = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
+    prod_qrIds = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
 
 class Requests:
     dev_api_domain = "https://api-dev.trueqrcode.com"
@@ -43,8 +31,6 @@ class Creds:
         ["komic@mailinator.com", "Something555!"],
         ["mykemos@protonmail.com", "Qwerty2233!"],
         ["merkar@mailinator.com", "Something555!"],
-        ["porterbird12@gmail.com", "Qwerty123!"],
-        ["zovid@mailinator.com", "Qwerty123!"],
         ["someid@mailinator.com", "Qwerty123!"],
         ["fahaw@mailinator.com", "Qwerty123!"],
         #FROM PREPROD BASE:
@@ -84,15 +70,19 @@ class QRtemp:
                   "BORDER_SPACE_LABEL_TOP", "NO_BORDER", "BORDER", "BORDER_INTERRUPTION"]
     patternTypes = ["SQUARE", "CLASSY", "CLASSY_ROUNDED", "DOTS", "EXTRA_ROUNDED", "ROUNDED"]
     cornerTypes = ["SQUARE", "FULL_CIRCLE", "ROUNDED"]
-    weblinks = ["https://www.englishgrammar.org", "https://wordcounter.net/character-count", "https://advice.writing.utoronto.ca",
-                  "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://uxdesign.cc", "https://www.altexsoft.com",
-                  "https://stripe.com/docs/testing", "https://www.freeimageslive.co.uk", "https://dummyimage.com", "https://www.charactercountonline.com",
-                  "https://learnenglish.britishcouncil.org", "https://qatechnicals.wordpress.com", "https://twitter.com", "https://www.tiktok.com/en"]
+    weblinks = ["http://example.com", "https://en.wikipedia.org/wiki/The_New_Yorker", "https://dictionary.cambridge.org",
+                "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://www.englishgrammar.org", "https://medium.com",
+                "https://www.englishclub.com", "https://edition.cnn.com", "https://www.bbc.com", "https://www.washingtonpost.com",
+                "https://www.guru99.com", "https://qatechnicals.wordpress.com", "https://www.gamespot.com/"]
     
-    library_ids = ["315736cc-6a8f-48ba-913c-f85ef9f1fc13", "0af8a641-b6a5-425a-bc56-6cb088ae4788", "1435db54-64cc-4f05-8960-66e16f89d651",
-                   "792a07bb-d289-440a-bd9a-6bd73a7f3d62", "32798bea-6bd7-4a91-baba-8fe219b3f6ed", None]
+    library_ids = ["1b2f8fa8-c7f3-4a36-891e-1e41bad9ddd3", "3ea6cb73-7ea0-41b1-8a78-6c5144cd573a", "55899918-00f9-40b8-927d-cf51289a5041",
+                   "8d2365e7-4e01-4f63-9266-404a1140bdeb", "3f430cbc-1bda-4f2d-9a58-7a8cc379d727", "2a44556c-102e-4da7-9b4d-b44a9e7548db",
+                   "cadfd4a3-7a43-4e11-89b9-35feedda100b", "8854c125-07c1-4ddc-8d61-f2c1ba4e1d8d", "a2067a9f-6ab0-4566-89ce-97cef7070876",
+                   "54ae7c12-1a45-4507-928b-e0d2c3020691", None]
     
-    pdf_fileIds = ["9511808e-39d1-42d0-9d9d-9326eb53cdd3"]
+    pdf_fileIds = ["62ada9d8-97f0-40d4-8863-cd4e768f2488", "28513343-4d79-41fd-8d41-98105cea315e", "0b2bc008-c9b3-43e6-a3b3-fd5c914ddea3",
+                   "cbd748c9-3eaf-4db3-a4a5-b5f67f79c685", "1aaf6121-f45b-45cf-a324-d39cfdb124da", "3979a2a2-0ed8-4a26-b9a6-935da2eeb7a5",
+                   "5d2872d9-eee1-47d7-b898-79a214aa16c6", "98456b90-e93d-40f2-a390-9e6d43f22807", "1c7f0c98-d76c-448f-9476-a606883d3af1"]
 
 class General:
     lightColors = ["#ffffff", "#e2a0a0", "#f0d99c", "#ccf09c", "#e7d2fa", "#d2fafa"]
