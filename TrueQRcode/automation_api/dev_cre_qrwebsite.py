@@ -24,7 +24,8 @@ def create_qrcode():
 		"frameType": ad.Methods.randomizer(ad.QRtemp.frameTypes),
 		"patternType": ad.Methods.randomizer(ad.QRtemp.patternTypes),
 		"cornerType": ad.Methods.randomizer(ad.QRtemp.cornerTypes),
-        "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        #"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        "libraryId": None,
         },
 	"website": {
 		"url": ad.Methods.randomizer(ad.QRtemp.weblinks)
@@ -41,7 +42,7 @@ def create_qrcode():
     assert resp_create.json()['name'] != None, "required name field value empty"
     assert resp_create.json()['codeType'] != None, "required codeType field value empty"
 
-iterations = 2
+iterations = 10
 
 count = 0
 while True:

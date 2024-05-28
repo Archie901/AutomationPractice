@@ -7,21 +7,9 @@ class Methods:
 
 class QRids:
 
-    #FROM TYPICAL DEV BASE:
+    dev_qrIds = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
 
-    dev_qrIds_Komic = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
-    
-    dev_qrIds_Mykemo = ["VFRRH3BR","JJZXVUZD","LLD9U6YD"]
-    
-    #FROM PREPROD BASE:
-
-    dev_qrIds_Newest = ["EZ492FJT","JTYCM8T4","2H6A3MS5","BMEVT9DB","AWBDPD3Q"]
-
-    dev_qrIds_Selovi = ["6Z679L7X","QL6XTM85","UER48QAT"]
-
-    #FROM PROD BASE:
-
-    prod_qrIds_Mykemo = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
+    prod_qrIds = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
 
 class Requests:
     dev_api_domain = "https://api-dev.trueqrcode.com"
@@ -43,8 +31,6 @@ class Creds:
         ["komic@mailinator.com", "Something555!"],
         ["mykemos@protonmail.com", "Qwerty2233!"],
         ["merkar@mailinator.com", "Something555!"],
-        ["porterbird12@gmail.com", "Qwerty123!"],
-        ["zovid@mailinator.com", "Qwerty123!"],
         ["someid@mailinator.com", "Qwerty123!"],
         ["fahaw@mailinator.com", "Qwerty123!"],
         #FROM PREPROD BASE:
@@ -84,10 +70,10 @@ class QRtemp:
                   "BORDER_SPACE_LABEL_TOP", "NO_BORDER", "BORDER", "BORDER_INTERRUPTION"]
     patternTypes = ["SQUARE", "CLASSY", "CLASSY_ROUNDED", "DOTS", "EXTRA_ROUNDED", "ROUNDED"]
     cornerTypes = ["SQUARE", "FULL_CIRCLE", "ROUNDED"]
-    weblinks = ["https://www.englishgrammar.org", "https://wordcounter.net/character-count", "https://advice.writing.utoronto.ca",
-                  "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://uxdesign.cc", "https://www.altexsoft.com",
-                  "https://stripe.com/docs/testing", "https://www.freeimageslive.co.uk", "https://dummyimage.com", "https://www.charactercountonline.com",
-                  "https://learnenglish.britishcouncil.org", "https://qatechnicals.wordpress.com", "https://twitter.com", "https://www.tiktok.com/en"]
+    weblinks = ["http://example.com", "https://en.wikipedia.org/wiki/The_New_Yorker", "https://dictionary.cambridge.org",
+                "https://whatismyipaddress.com", "https://pairwise.yuuniworks.com", "https://www.englishgrammar.org", "https://medium.com",
+                "https://www.englishclub.com", "https://edition.cnn.com", "https://www.bbc.com", "https://www.washingtonpost.com",
+                "https://www.guru99.com", "https://qatechnicals.wordpress.com", "https://www.gamespot.com/"]
     
     library_ids = ["1b2f8fa8-c7f3-4a36-891e-1e41bad9ddd3", "3ea6cb73-7ea0-41b1-8a78-6c5144cd573a", "55899918-00f9-40b8-927d-cf51289a5041",
                    "8d2365e7-4e01-4f63-9266-404a1140bdeb", "3f430cbc-1bda-4f2d-9a58-7a8cc379d727", "2a44556c-102e-4da7-9b4d-b44a9e7548db",
