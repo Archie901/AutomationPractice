@@ -21,7 +21,7 @@ def test_create_check_qrcode(login):
 		"frameType": randomizer(ad.QRtemp.frameTypes),
 		"patternType": randomizer(ad.QRtemp.patternTypes),
 		"cornerType": randomizer(ad.QRtemp.cornerTypes),
-        "libraryId": randomizer(ad.QRtemp.library_ids),
+        #"libraryId": randomizer(ad.QRtemp.library_ids),
         },
 	"website": {
 		"url": randomizer(ad.QRtemp.weblinks)
@@ -31,7 +31,7 @@ def test_create_check_qrcode(login):
     resp_create = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_qrCreate,
                                 data=payload_json, headers=pytest.headersToken)
     #print(resp_create.text)
-    print("create request:", resp_create.status_code, "/", resp_create.reason, "/", resp_create.elapsed)
+    print("create request:", resp_create.status_code, "/", resp_create.elapsed)
     assert resp_create.status_code == 200, "status code not 200"
     assert resp_create.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_create.json()['id'] != None, "required id field value empty"
@@ -46,7 +46,7 @@ def test_create_check_qrcode(login):
     resp_qrcheck = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                 headers=pytest.headersToken)
     #print(resp_qrcheck.text)
-    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
+    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 200, "status code not 200"
     assert resp_qrcheck.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_qrcheck.json()['id'] == pytest.cre_qr_id, "qr id does not match"
@@ -69,7 +69,7 @@ def test_update_check_qrcode(login):
 		"frameType": randomizer(ad.QRtemp.frameTypes),
 		"patternType": randomizer(ad.QRtemp.patternTypes),
 		"cornerType": randomizer(ad.QRtemp.cornerTypes),
-        "libraryId": randomizer(ad.QRtemp.library_ids),
+        #"libraryId": randomizer(ad.QRtemp.library_ids),
         },
 	"website": {
 		"url": randomizer(ad.QRtemp.weblinks)
@@ -79,7 +79,7 @@ def test_update_check_qrcode(login):
     resp_update = requests.patch(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                  data=payload_json, headers=pytest.headersToken)
     #print(resp_update.text)
-    print("update request:", resp_update.status_code, "/", resp_update.reason, "/", resp_update.elapsed)
+    print("update request:", resp_update.status_code, "/", resp_update.elapsed)
     assert resp_update.status_code == 200, "status code not 200"
     assert resp_update.headers['Content-Type'] == "application/json", "content type not application/json"
     assert resp_update.json()['id'] != None, "required id field value empty"
@@ -90,7 +90,7 @@ def test_update_check_qrcode(login):
 
     resp_qrcheck = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                 headers=pytest.headersToken)
-    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
+    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.elapsed)
     #print(resp_qrcheck.text)
     assert resp_qrcheck.status_code == 200, "status code not 200"
     assert resp_qrcheck.headers['Content-Type'] == "application/json", "content type not application/json"
@@ -102,13 +102,13 @@ def test_delete_check_qrcode(login):
     resp_delete = requests.delete(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                   headers=pytest.headersToken)
     #print(resp_delete.text)
-    print("delete request:", resp_delete.status_code, "/", resp_delete.reason, "/", resp_delete.elapsed)
+    print("delete request:", resp_delete.status_code, "/", resp_delete.elapsed)
     assert resp_delete.status_code == 204, "status code not 204"
 
     resp_qrcheck = requests.get(url=ad.Requests.dev_api_domain+ad.Requests.path_qrSingle+pytest.cre_qr_id,
                                 headers=pytest.headersToken)
     #print(resp_qrcheck.text)
-    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.reason, "/", resp_qrcheck.elapsed)
+    print("get qr request:", resp_qrcheck.status_code, "/", resp_qrcheck.elapsed)
     assert resp_qrcheck.status_code == 400, "status code not 400"
     assert resp_qrcheck.json()['errors'][0]['message'] == "Qr code has been deleted", "delete message is different/absent"
 
