@@ -1,1 +1,1 @@
-from adata.testdata import Methods, QRids, Requests, Creds, Scans, QRtemp, General
+from adata.testdata import Methods, Requests, Creds, Scans, QRtemp, General

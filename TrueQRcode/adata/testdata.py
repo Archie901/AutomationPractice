@@ -5,12 +5,6 @@ class Methods:
         randomed = random.choice(x)
         return randomed
 
-class QRids:
-
-    dev_qrIds = ["E5F1ADAM","SZGK843B","NPYDMDX3"]
-
-    prod_qrIds = ["HMNJ716W","2GJD6KH6", "KW1ST4Z3"]
-
 class Requests:
     dev_api_domain = "https://api-dev.trueqrcode.com"
     prod_api_domain = "https://api.trueqrcode.com"
@@ -63,9 +57,9 @@ class Scans:
 
 class QRtemp:
     sizes = [10, 11, 12, 13, 14, 15, 16]
-    templateNames = ["Reprehe ost verden", "ErroCequAtur", "atibu_modi_fam", "!!Croieemus!!"]
-    QRnames = ["Let me see!", "sTranGe ThiNGs", "123__333__888", "make them still", "<<NOTHING LEFT!>>", "QRcode, it's ok", "MAY i Serve?"]
-    frameTexts = ["JUST DO IT", "COMING IS NOW", "ANGER TO GO", "$%!@))*", "_11124_", "Scan Smth", "$$$$", "ALOT"]
+    templateNames = ["A Busy Bee", "Dropping Like Flies", "Playing For Keeps", "Throw In the Towel", "A Lot on One Plate"]
+    QRnames = ["Exhibition_neck", "DevoteToLook", "((industrials123))", "!!Banish_money]}", "<<hardware_autonomy>>", "Top Drawer??", "fraudSSSport"]
+    frameTexts = ["Playing For Keeps", "ALL_SAME_TOme", "flea_markET_555", "@33In a Pickle??", "_Cup Of Joe_", "A Cut Below", "Jaws of Death"]
     frameTypes = ["NONE", "BORDER_LABEL_BOTTOM", "BORDER_LABEL_TOP", "ARROW_LABEL_BOTTOM", "ARROW_LABEL_TOP", "BORDER_SPACE_LABEL_BOTTOM",
                   "BORDER_SPACE_LABEL_TOP", "NO_BORDER", "BORDER", "BORDER_INTERRUPTION"]
     patternTypes = ["SQUARE", "CLASSY", "CLASSY_ROUNDED", "DOTS", "EXTRA_ROUNDED", "ROUNDED"]
