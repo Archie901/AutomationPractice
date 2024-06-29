@@ -34,7 +34,7 @@ def create_qrcode():
 		"frameType": ad.Methods.randomizer(ad.QRtemp.frameTypes),
 		"patternType": ad.Methods.randomizer(ad.QRtemp.patternTypes),
 		"cornerType": ad.Methods.randomizer(ad.QRtemp.cornerTypes),
-        "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        #"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
         },
 	"vcard": {
 		"designPrimaryColor": ad.Methods.randomizer(ad.General.darkColors),
@@ -63,13 +63,13 @@ def create_qrcode():
 		"state": ad.Methods.randomizer(ad.General.words),
 		"country": ad.Methods.randomizer(ad.General.countries),
 		"links": socialLinks,
-		"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+		#"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
         },
     }
     payload_json = json.dumps(payloadCreate)
     resp_create = requests.post(url=ad.Requests.dev_api_domain+ad.Requests.path_qrCreate,
                                 data=payload_json, headers=headersToken)
-    #print(resp_create.text)
+    print(resp_create.text)
     print("create request:", resp_create.status_code, "/", resp_create.elapsed)
     assert resp_create.status_code == 200, "status code not 200"
     assert resp_create.headers['Content-Type'] == "application/json", "content type not application/json"
