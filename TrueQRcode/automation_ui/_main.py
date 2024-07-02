@@ -1,6 +1,6 @@
 import sys
 
-project_parent1 = 'D:\Zusefulings\DevelopTesting\GitHub\AutomationPractice\Trueqrcode'
+project_parent1 = r'D:\Zusefulings\DevelopTesting\GitHub\AutomationPractice\Trueqrcode'
 
 sys.path.append(project_parent1)
 
