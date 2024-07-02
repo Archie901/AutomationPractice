@@ -42,7 +42,7 @@ def create_qrcode():
 		"frameType": ad.Methods.randomizer(ad.QRtemp.frameTypes),
 		"patternType": ad.Methods.randomizer(ad.QRtemp.patternTypes),
 		"cornerType": ad.Methods.randomizer(ad.QRtemp.cornerTypes),
-        "libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+        #"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
         },
     "multilink": {
         "socialLinks": socialLinks,
@@ -54,7 +54,7 @@ def create_qrcode():
 		"designDescriptionColor": ad.Methods.randomizer(ad.General.lightColors),
 		"designTitleColor": ad.Methods.randomizer(ad.General.lightColors),
 		"designBgColor": ad.Methods.randomizer(ad.General.darkColors),
-		"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
+		#"libraryId": ad.Methods.randomizer(ad.QRtemp.library_ids),
 		"description": ad.Methods.randomizer(ad.General.words),
 		"title": ad.Methods.randomizer(ad.General.persons),
         },
