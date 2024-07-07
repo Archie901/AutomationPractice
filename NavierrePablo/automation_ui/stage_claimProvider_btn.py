@@ -92,7 +92,7 @@ email_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.email_input}')
 phone_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.phone_input}')
 fax_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.fax_input}')
 
-email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
+email_input.send_keys(tv.Methods.randomizer(tv.General.unique_email))
 phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 

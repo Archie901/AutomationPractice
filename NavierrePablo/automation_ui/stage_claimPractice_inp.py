@@ -75,7 +75,7 @@ email_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.email_inpu
 fax_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.fax_input}')
 
 ein_input.send_keys(tv.Methods.randomizer(tv.General.diff_values))
-email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
+email_input.send_keys(tv.Methods.randomizer(tv.General.practiceEmails))
 fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
 time.sleep(5)
@@ -137,7 +137,7 @@ time.sleep(2)
 acc_email_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.acc_email_input}')
 acc_password_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.acc_password_input}')
 
-acc_email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
+acc_email_input.send_keys(tv.General.unique_email)
 
 acc_password_input.send_keys("Qwerty123!")
 
@@ -180,6 +180,20 @@ locations_selector.click()
 
 time.sleep(3)
 
-driver.save_screenshot('C:/Users/overk/Downloads/8_web_created_locs.png')
+driver.save_screenshot('C:/Users/overk/Downloads/8_web_created_prac.png')
+
+location_details = driver.find_element(By.XPATH, f'{el.WebSidePages.location_details}')
+location_details.click()
+
+time.sleep(3)
+
+driver.save_screenshot('C:/Users/overk/Downloads/9_web_created_loc.png')
+
+profile_selector = driver.find_element(By.XPATH, f'{el.WebSidePages.profile_selector}')
+profile_selector.click()
+
+time.sleep(3)
+
+driver.save_screenshot('C:/Users/overk/Downloads/10_pa_account_data.png')
 
 driver.quit()

@@ -85,6 +85,8 @@ class WebSidePages:
     skip_button = '//button[contains(text(), "Skip")]'
     pm_selector = '//span[contains(text(), "Practice Management")]'
     locations_selector = '//span[contains(text(), "Locations")]'
+    location_details = '//td//div/p[contains(@class, "MuiTypography-root")]'
+    profile_selector = '//span[contains(text(), "Profile")]'
 
 
 #Elements for the Claim Provider flow
