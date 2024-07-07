@@ -28,7 +28,7 @@ time.sleep(2)
 
 npi_input = driver.find_element(By.XPATH, f'{el.ProvMainPage.npi_input}')
 
-npi_input.send_keys("1023254281")
+npi_input.send_keys(tv.General.npi)
 
 time.sleep(1)
 
@@ -48,21 +48,21 @@ add_serv_button.click()
 serv_name_input = driver.find_element(By.XPATH, f'{el.ProvServicesPage.serv_name_input}')
 desc_textarea = driver.find_element(By.XPATH, f'{el.ProvServicesPage.desc_textarea}')
 
-serv_name_input.send_keys("custom service 1")
-desc_textarea.send_keys("custom service 1 description")
+serv_name_input.send_keys(tv.Methods.randomizer(tv.General.serviceNames))
+desc_textarea.send_keys(tv.Methods.randomizer(tv.General.serviceDescs))
 
 save_button = driver.find_element(By.XPATH, f'{el.ProvServicesPage.save_button}')
 save_button.click()
 
 time.sleep(2)
 
-serv_name_input.send_keys("custom service 2")
-desc_textarea.send_keys("custom service 2 description")
+serv_name_input.send_keys(tv.Methods.randomizer(tv.General.serviceNames))
+desc_textarea.send_keys(tv.Methods.randomizer(tv.General.serviceDescs))
 save_button.click()
 
 time.sleep(2)
 
-serv_name_input.send_keys("custom service 3 no desc")
+serv_name_input.send_keys(tv.Methods.randomizer(tv.General.serviceNames))
 save_button.click()
 time.sleep(2)
 
@@ -92,9 +92,9 @@ email_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.email_input}')
 phone_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.phone_input}')
 fax_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.fax_input}')
 
-email_input.send_keys("aperture_lab@mailinator.com")
-phone_input.send_keys("5518239134")
-fax_input.send_keys("9805657280")
+email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
+phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
 continue_button3 = driver.find_element(By.XPATH, f'{el.LocInsurPages.continue_button3}')
 continue_button3.click()
@@ -127,12 +127,12 @@ med_license_input = driver.find_element(By.XPATH, f'{el.VerifyIdentityPage.med_l
 state_license_dropdown = driver.find_element(By.CSS_SELECTOR, f'{el.VerifyIdentityPage.state_license_dropdown}')
 dob_input = driver.find_element(By.XPATH, f'{el.VerifyIdentityPage.dob_input}')
 
-med_license_input.send_keys("123_gfhgf_000")
-state_license_dropdown.send_keys("Delaware")
+med_license_input.send_keys(tv.Methods.randomizer(tv.General.diff_values))
+state_license_dropdown.send_keys(tv.Methods.randomizer(tv.General.usStates))
 state_license_dropdown.send_keys(Keys.DOWN)
 state_license_dropdown.send_keys(Keys.ENTER)
 #driver.execute_script("arguments[0].setAttribute('value', 'California')", state_license_dropdown)
-dob_input.send_keys("09091990")
+dob_input.send_keys(tv.Methods.randomizer(tv.General.datesOfBirth))
 
 time.sleep(2)
 
@@ -158,8 +158,8 @@ time.sleep(2)
 prac_input = driver.find_element(By.XPATH, f'{el.WorkInfoPage.prac_input}')
 prac_email = driver.find_element(By.XPATH, f'{el.WorkInfoPage.prac_email}')
 
-prac_input.send_keys("Autotest Practice2")
-prac_email.send_keys("auto_practice2@maildrop.cc")
+prac_input.send_keys(tv.Methods.randomizer(tv.General.practiceNames))
+prac_email.send_keys(tv.Methods.randomizer(tv.General.practiceEmails))
 
 next_button3 = driver.find_element(By.XPATH, f'{el.WorkInfoPage.next_button3}')
 next_button3.click()
