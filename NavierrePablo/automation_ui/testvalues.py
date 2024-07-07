@@ -31,9 +31,9 @@ class General:
               "iokler@mailinator.com", "qwertus@mailinator.com", "nioxes@mailinator.com", "zaribaydu@mailinator.com", "kutsenko@mailinator.com",
               "mordat@mailinator.com", "glaynich@mailinator.com", "fusteri@mailinator.com", "vivusik@mailinator.com")
     
-    usPhoneNums = ("13156391271", "12067046212", "13152593482", "13152593484", "13152593485", "13152593481", "13152593478", "12035472089",
-                  "12035472101", "12019058727", "14305416275", "14052955409", "16085617464", "12242864639", "14013214382", "17144856307",
-                  "12148140654", "12818101867", "17632200857", "17372420880", "17146968342")
+    usPhoneNums = ("3156391271", "2067046212", "3152593482", "3152593484", "3152593485", "3152593481", "3152593478", "2035472089",
+                  "2035472101", "2019058727", "4305416275", "4052955409", "6085617464", "2242864639", "4013214382", "7144856307",
+                  "2148140654", "2818101867", "7632200857", "7372420880", "7146968342")
     
     firstNames = ("Allen","Baylor","Everett","Gerald","Griffin","Jamari","Kayson","Kenzo","Ronald","Thomas","Alianna","Aya","Eleanora",
                   "Elia","Halle","Jovie","Kamila","Mikayla","Rosalia","Scarlett")
