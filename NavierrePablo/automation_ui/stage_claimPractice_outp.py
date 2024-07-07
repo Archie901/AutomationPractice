@@ -72,9 +72,9 @@ ein_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.ein_input}')
 email_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.email_input}')
 fax_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.fax_input}')
 
-ein_input.send_keys(tv.Methods.randomizer(tv.General.emails))
+ein_input.send_keys(tv.Methods.randomizer(tv.General.diff_values))
 email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
-fax_input.send_keys(tv.Methods.randomizer(tv.General.telNumbers))
+fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
 time.sleep(5)
 
@@ -119,10 +119,10 @@ lastName_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.lastName_
 dob_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.dob_input}')
 phone_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.phone_input}')
 
-firstName_input.send_keys("Zoiker")
-lastName_input.send_keys("Muscalos")
-dob_input.send_keys("09091990")
-phone_input.send_keys("4208245870")
+firstName_input.send_keys(tv.Methods.randomizer(tv.General.firstNames))
+lastName_input.send_keys(tv.Methods.randomizer(tv.General.lastNames))
+dob_input.send_keys(tv.Methods.randomizer(tv.General.datesOfBirth))
+phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
 time.sleep(1)
 
@@ -135,7 +135,7 @@ time.sleep(2)
 acc_email_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.acc_email_input}')
 acc_password_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.acc_password_input}')
 
-acc_email_input.send_keys("111zoiker@mailinator.com")
+acc_email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
 
 acc_password_input.send_keys("Qwerty123!")
 
@@ -154,7 +154,7 @@ time.sleep(2)
 login_button = driver.find_element(By.XPATH, f'{el.SetPasswordPage.login_button}')
 login_button.click()
 
-time.sleep(2)
+time.sleep(5)
 
 #now we are on web side
 

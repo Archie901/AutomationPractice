@@ -123,7 +123,7 @@ phone_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.phone_input}
 
 firstName_input.send_keys(tv.Methods.randomizer(tv.General.firstNames))
 lastName_input.send_keys(tv.Methods.randomizer(tv.General.lastNames))
-dob_input.send_keys("09091990")
+dob_input.send_keys(tv.Methods.randomizer(tv.General.datesOfBirth))
 phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
 time.sleep(1)
@@ -156,7 +156,7 @@ time.sleep(2)
 login_button = driver.find_element(By.XPATH, f'{el.SetPasswordPage.login_button}')
 login_button.click()
 
-time.sleep(2)
+time.sleep(5)
 
 #now we are on web side
 

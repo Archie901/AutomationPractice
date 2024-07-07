@@ -41,4 +41,5 @@ class General:
     lastNames = ("Knapp","Evans","Aguirre","Frazier","Jenkins","Savage","Lucero","Atkins","Hogan","Ware","Cantu","Rogers","Fuentes",
                  "Frederick","Daniel","Pineda","Delacruz","Mullins","Reiders","Bakertin")
     
-    datesOfBirth = ("09091990","11111911")
+    datesOfBirth = ("09091990","11111911","12301987","09261975","11231988","01101993","07212001","03151964","08051977",
+                    "01291961","10041990","02222005","04261999", "05061980", "06301945")
