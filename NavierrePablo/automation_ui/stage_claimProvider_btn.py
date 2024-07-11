@@ -32,6 +32,8 @@ npi_input.send_keys(tv.General.npi)
 
 time.sleep(1)
 
+print("Main page, prov NPI entered: --", npi_input.get_attribute("value"))
+
 search_button = driver.find_element(By.XPATH, f'{el.ProvMainPage.search_button}')
 search_button.click()
 
@@ -54,16 +56,25 @@ desc_textarea.send_keys(tv.Methods.randomizer(tv.General.serviceDescs))
 save_button = driver.find_element(By.XPATH, f'{el.ProvServicesPage.save_button}')
 save_button.click()
 
+print("Prov Services page, service name1 entered: --", serv_name_input.get_attribute("value"))
+print("Prov Services page, service desc entered: --", desc_textarea.get_attribute("value"))
+
 time.sleep(2)
 
 serv_name_input.send_keys(tv.Methods.randomizer(tv.General.serviceNames))
 desc_textarea.send_keys(tv.Methods.randomizer(tv.General.serviceDescs))
 save_button.click()
 
+print("Prov Services page, service name2 entered: --", serv_name_input.get_attribute("value"))
+print("Prov Services page, service desc entered: --", desc_textarea.get_attribute("value"))
+
 time.sleep(2)
 
 serv_name_input.send_keys(tv.Methods.randomizer(tv.General.serviceNames))
 save_button.click()
+
+print("Prov Services page, service name3 entered: --", serv_name_input.get_attribute("value"))
+
 time.sleep(2)
 
 back_button = driver.find_element(By.XPATH, f'{el.ProvServicesPage.back_button}')
@@ -88,13 +99,13 @@ skip_button = driver.find_element(By.XPATH, f'{el.LocInsurPages.skip_button}')
 skip_button.click()
 time.sleep(2)
 
-email_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.email_input}')
-phone_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.phone_input}')
-fax_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.fax_input}')
+contact_email_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.contact_email_input}')
+contact_phone_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.contact_phone_input}')
+contact_fax_input = driver.find_element(By.XPATH, f'{el.LocInsurPages.contact_fax_input}')
 
-email_input.send_keys(tv.Methods.randomizer(tv.General.unique_email))
-phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
-fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+contact_email_input.send_keys(tv.General.unique_email)
+contact_phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+contact_fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
 continue_button3 = driver.find_element(By.XPATH, f'{el.LocInsurPages.continue_button3}')
 continue_button3.click()

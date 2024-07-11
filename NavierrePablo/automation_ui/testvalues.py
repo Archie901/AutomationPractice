@@ -18,9 +18,9 @@ class Requests:
 
 class General:
 
-    npi = "1194808097"
+    npi = "1720317795"
 
-    unique_email = ("makeliving@mailinator.com")
+    unique_email = ("burgom@mailinator.com")
     
     practice_search = ("Medical Lab", "Clinical Facility", "Rehab Center", "Great Place", "Pharmacy", "Store Goods", "Best Shelter")
 
@@ -47,7 +47,7 @@ class General:
 
     serviceDescs = ("desc Playing For Keeps", "desc ALL_SAME_TOme", "desc flea_markET_555", "desc @33In a Pickle??", "desc_Cup Of Joe_",
                     "desc A Cut Below", "desc Jaws of Death", "desc A Busy Bee", "desc Dropping Like Flies", "desc Playing For Keeps",
-                    "desc Throw In the Towel", "desc A Lot on One Plate", None)
+                    "desc Throw In the Towel", "desc A Lot on One Plate", "")
 
     usStates = ("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho",
                 "Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi",
