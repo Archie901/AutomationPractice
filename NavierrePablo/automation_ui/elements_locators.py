@@ -124,16 +124,16 @@ class LocInsurPages:
 
 class VerifyIdentityPage:
 
-    create_acc_button = '//a[contains(text(), "Create Account")]'
-    med_license_input = '//input[@id="medical-license-number"]'
-    state_license_dropdown = 'input[placeholder*="New Jersey"]'
-    dob_input = '//input[@name="dateOfBirth"]'
+    create_prov_button = '//a[contains(text(), "Create Account")]'
+    prov_med_license_input = '//input[@id="medical-license-number"]'
+    prov_state_license_dropdown = 'input[placeholder*="New Jersey"]'
+    prov_dob_input = '//input[@name="dateOfBirth"]'
     next_button1 = '//button[contains(text(), "Next")]'
 
 class CreatePasswordPage:
 
-    acc_password_input = '//input[@name="password"]'
-    acc_password_confirm = '//input[@name="passwordConfirmation"]'
+    prov_password_input = '//input[@name="password"]'
+    prov_password_confirm = '//input[@name="passwordConfirmation"]'
     next_button2 = '//button[contains(text(), "Next")]'
     verify_code_input = '//input[@autocomplete="one-time-code"]'
 
@@ -151,3 +151,4 @@ class WebProvPages:
     profile_selector = '//span[contains(text(), "My Profile")]'
     insurance_tab = '//button[contains(text(), "Insurance")]'
     locations_tab = '//button[contains(text(), "Locations")]'
+    location_open_tick = '//div[contains(@class, "_GroupWrapper_ur8f6_67")][2]//div[1]//div[contains(@class, "_LinkContent_1ubfi_31")]//button'

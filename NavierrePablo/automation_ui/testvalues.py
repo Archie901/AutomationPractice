@@ -18,9 +18,9 @@ class Requests:
 
 class General:
 
-    npi = "1720317795"
+    npi = "1962914085"
 
-    unique_email = ("burgom@mailinator.com")
+    unique_email = ("mumerokio@mailinator.com")
     
     practice_search = ("Medical Lab", "Clinical Facility", "Rehab Center", "Great Place", "Pharmacy", "Store Goods", "Best Shelter")
 
