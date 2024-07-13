@@ -41,12 +41,12 @@ class BusiMainPage:
 
 class ConfirmIdentityPage:
 
-    name_input = '//input[@id="business-name"]'
-    ein_input = '//input[@placeholder="EIN"]'
-    address_input = '//input[@placeholder="Address"]'
-    phone_input = '//input[@id="phone-number"]'
-    email_input = '//input[@placeholder="mail@mail.com"]'
-    fax_input = '//input[@name="faxNumber"]'
+    prac_name_input = '//input[@id="business-name"]'
+    prac_ein_input = '//input[@placeholder="EIN"]'
+    prac_address_input = '//input[@placeholder="Address"]'
+    prac_phone_input = '//input[@id="phone-number"]'
+    prac_email_input = '//input[@placeholder="mail@mail.com"]'
+    prac_fax_input = '//input[@name="faxNumber"]'
     next_button1 = '//button[contains(text(), "Next")]'
 
 class SelectServicesPage:
@@ -64,16 +64,16 @@ class SelectServicesPage:
 class CreateAccountPage:
 
     create_acc_button = '//a[contains(text(), "Create Account")]'
-    firstName_input = '//input[@placeholder="First Name"]'
-    lastName_input = '//input[@placeholder="Last Name"]'
-    dob_input = '//input[@name="dateOfBirth"]'
-    phone_input = '//input[@name="phone"]'
+    pa_firstName_input = '//input[@placeholder="First Name"]'
+    pa_lastName_input = '//input[@placeholder="Last Name"]'
+    pa_dob_input = '//input[@name="dateOfBirth"]'
+    pa_phone_input = '//input[@name="phone"]'
     next_button3 = '//button[contains(text(), "Next")]'
 
 class SetPasswordPage:
 
-    acc_email_input = '//input[@name="email"]'
-    acc_password_input = '//input[@name="password"]'
+    pa_email_input = '//input[@name="email"]'
+    pa_password_input = '//input[@name="password"]'
     create_button = '//button[contains(text(), "Create")]'
     verify_code_input = '//input[@autocomplete="one-time-code"]'
     login_button = '//a[contains(text(), "Log In")]'
@@ -85,6 +85,9 @@ class WebSidePages:
     skip_button = '//button[contains(text(), "Skip")]'
     pm_selector = '//span[contains(text(), "Practice Management")]'
     locations_selector = '//span[contains(text(), "Locations")]'
+    location_details = '//td//div/p[contains(@class, "MuiTypography-root")]'
+    services_tab = '//button[contains(text(), "Services")]'
+    profile_selector = '//span[contains(text(), "Profile")]'
 
 
 #Elements for the Claim Provider flow
@@ -110,9 +113,9 @@ class LocInsurPages:
     location1_button = '//tbody/tr[1]/td/button[contains(@class, "MuiButtonBase-root")]'
     continue_button2 = '//button[contains(text(), "Continue")]'
     skip_button = '//button[contains(text(), "Skip")]'
-    email_input = '//input[@id="email"]'
-    phone_input = '//input[@id="phone-number"]'
-    fax_input = '//input[@id="fax-number"]'
+    contact_email_input = '//input[@id="email"]'
+    contact_phone_input = '//input[@id="phone-number"]'
+    contact_fax_input = '//input[@id="fax-number"]'
     continue_button3 = '//div[contains(@class, "MuiDialogActions-root")]//button[contains(text(), "Continue")]'
     pref_email_box = '//div/label[1]/span[contains(@class, "MuiButtonBase-root")]'
     pref_fax_box = '//div/label[2]/span[contains(@class, "MuiButtonBase-root")]'
@@ -121,16 +124,16 @@ class LocInsurPages:
 
 class VerifyIdentityPage:
 
-    create_acc_button = '//a[contains(text(), "Create Account")]'
-    med_license_input = '//input[@id="medical-license-number"]'
-    state_license_dropdown = 'input[placeholder*="New Jersey"]'
-    dob_input = '//input[@name="dateOfBirth"]'
+    create_prov_button = '//a[contains(text(), "Create Account")]'
+    prov_med_license_input = '//input[@id="medical-license-number"]'
+    prov_state_license_dropdown = 'input[placeholder*="New Jersey"]'
+    prov_dob_input = '//input[@name="dateOfBirth"]'
     next_button1 = '//button[contains(text(), "Next")]'
 
 class CreatePasswordPage:
 
-    acc_password_input = '//input[@name="password"]'
-    acc_password_confirm = '//input[@name="passwordConfirmation"]'
+    prov_password_input = '//input[@name="password"]'
+    prov_password_confirm = '//input[@name="passwordConfirmation"]'
     next_button2 = '//button[contains(text(), "Next")]'
     verify_code_input = '//input[@autocomplete="one-time-code"]'
 
@@ -148,3 +151,4 @@ class WebProvPages:
     profile_selector = '//span[contains(text(), "My Profile")]'
     insurance_tab = '//button[contains(text(), "Insurance")]'
     locations_tab = '//button[contains(text(), "Locations")]'
+    location_open_tick = '//div[contains(@class, "_GroupWrapper_ur8f6_67")][2]//div[1]//div[contains(@class, "_LinkContent_1ubfi_31")]//button'

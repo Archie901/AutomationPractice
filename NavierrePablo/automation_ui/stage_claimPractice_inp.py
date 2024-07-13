@@ -4,11 +4,13 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-import elements_locators as el
+from selenium.webdriver.common.keys import Keys
+import locators as el
 import testvalues as tv
 
 service = Service()
 options = webdriver.ChromeOptions()
+options.set_capability("goog:loggingPrefs", {"browser": "SEVERE"})
 driver = webdriver.Chrome(service=service, options=options)
 #driver = webdriver.Edge()
 #driver = webdriver.Firefox()
@@ -46,7 +48,7 @@ random_lvl3_type7.click()
 
 time.sleep(3)
 
-driver.save_screenshot('C:/Users/overk/Downloads/2_selected_lvl3_types.png')
+driver.save_screenshot('C:/Users/overk/Downloads/1_selected_lvl3_types.png')
 
 continue_button1 = driver.find_element(By.XPATH, f'{el.BusiMainPage.continue_button1}')
 continue_button1.click()
@@ -64,23 +66,36 @@ random_prac = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.BusiMain
 random_prac.click()
 time.sleep(2)
 
-driver.save_screenshot('C:/Users/overk/Downloads/3_choose_your_practice.png')
+driver.save_screenshot('C:/Users/overk/Downloads/2_choose_your_practice.png')
 
 continue_button3 = driver.find_element(By.XPATH, f'{el.BusiMainPage.continue_button3}')
 continue_button3.click()
 time.sleep(4)
 
-ein_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.ein_input}')
-email_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.email_input}')
-fax_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.fax_input}')
+prac_name_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_name_input}')
+prac_ein_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_ein_input}')
+prac_address_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_address_input}')
+prac_phone_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_phone_input}')
+prac_email_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_email_input}')
+prac_fax_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_fax_input}')
 
-ein_input.send_keys(tv.Methods.randomizer(tv.General.diff_values))
-email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
-fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+prac_ein_input.send_keys(tv.Methods.randomizer(tv.General.diff_values))
+prac_phone_input.send_keys(Keys.CONTROL, "a")
+prac_phone_input.send_keys(Keys.DELETE)
+prac_phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+prac_email_input.send_keys(tv.Methods.randomizer(tv.General.practiceEmails))
+prac_fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
-time.sleep(5)
+time.sleep(2)
 
-driver.save_screenshot('C:/Users/overk/Downloads/4_confirm_identity_data.png')
+print("Confirm Identity, prac name retrieved: --", prac_name_input.get_attribute("value"))
+print("Confirm Identity, prac ein entered: --", prac_ein_input.get_attribute("value"))
+print("Confirm Identity, prac address retrieved: --", prac_address_input.get_attribute("value"))
+print("Confirm Identity, prac phone entered: --", prac_phone_input.get_attribute("value"))
+print("Confirm Identity, prac email entered: --", prac_email_input.get_attribute("value"))
+print("Confirm Identity, prac fax entered: --", prac_fax_input.get_attribute("value"))
+
+driver.save_screenshot('C:/Users/overk/Downloads/3_confirm_identity_data.png')
 
 next_button1 = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.next_button1}')
 next_button1.click()
@@ -99,7 +114,7 @@ random_serv5.click()
 
 time.sleep(2)
 
-driver.save_screenshot('C:/Users/overk/Downloads/5_selected_services.png')
+driver.save_screenshot('C:/Users/overk/Downloads/4_selected_services.png')
 
 next_button2 = driver.find_element(By.XPATH, f'{el.SelectServicesPage.next_button2}')
 next_button2.click()
@@ -116,34 +131,42 @@ create_acc_button.click()
 
 time.sleep(2)
 
-firstName_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.firstName_input}')
-lastName_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.lastName_input}')
-dob_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.dob_input}')
-phone_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.phone_input}')
+pa_firstName_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_firstName_input}')
+pa_lastName_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_lastName_input}')
+pa_dob_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_dob_input}')
+pa_phone_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_phone_input}')
 
-firstName_input.send_keys(tv.Methods.randomizer(tv.General.firstNames))
-lastName_input.send_keys(tv.Methods.randomizer(tv.General.lastNames))
-dob_input.send_keys(tv.Methods.randomizer(tv.General.datesOfBirth))
-phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+pa_firstName_input.send_keys(tv.Methods.randomizer(tv.General.firstNames))
+pa_lastName_input.send_keys(tv.Methods.randomizer(tv.General.lastNames))
+pa_dob_input.send_keys(tv.Methods.randomizer(tv.General.datesOfBirth))
+pa_phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
 
-time.sleep(1)
+time.sleep(4)
 
-driver.save_screenshot('C:/Users/overk/Downloads/6_admin_account_data.png')
+print("Create Account, pa firstName entered: --", pa_firstName_input.get_attribute("value"))
+print("Create Account, pa lastName entered: --", pa_lastName_input.get_attribute("value"))
+print("Create Account, pa DOB entered: --", pa_dob_input.get_attribute("value"))
+print("Create Account, pa phone entered: --", pa_phone_input.get_attribute("value"))
+
+driver.save_screenshot('C:/Users/overk/Downloads/5_pa_personal_data.png')
 
 next_button3 = driver.find_element(By.XPATH, f'{el.CreateAccountPage.next_button3}')
 next_button3.click()
 time.sleep(2)
 
-acc_email_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.acc_email_input}')
-acc_password_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.acc_password_input}')
+pa_email_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.pa_email_input}')
+pa_password_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.pa_password_input}')
 
-acc_email_input.send_keys(tv.Methods.randomizer(tv.General.emails))
+pa_email_input.send_keys(tv.General.unique_email)
 
-acc_password_input.send_keys("Qwerty123!")
+pa_password_input.send_keys("Qwerty123!")
 
 time.sleep(1)
 
-driver.save_screenshot('C:/Users/overk/Downloads/7_admin_email.png')
+print("Set Email/Password, pa email entered: --", pa_email_input.get_attribute("value"))
+print("Set Email/Password, pa password entered: --", pa_password_input.get_attribute("value"))
+
+driver.save_screenshot('C:/Users/overk/Downloads/6_pa_email-password.png')
 
 create_button = driver.find_element(By.XPATH, f'{el.SetPasswordPage.create_button}')
 create_button.click()
@@ -152,6 +175,10 @@ time.sleep(1)
 verify_code_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.verify_code_input}')
 verify_code_input.send_keys("010101")
 time.sleep(2)
+
+# print browser console messages (not working for Firefox)
+for entry in driver.get_log('browser'):
+    print(entry)
 
 login_button = driver.find_element(By.XPATH, f'{el.SetPasswordPage.login_button}')
 login_button.click()
@@ -180,6 +207,31 @@ locations_selector.click()
 
 time.sleep(3)
 
-driver.save_screenshot('C:/Users/overk/Downloads/8_web_created_locs.png')
+driver.save_screenshot('C:/Users/overk/Downloads/7_created_practice.png')
+
+location_details = driver.find_element(By.XPATH, f'{el.WebSidePages.location_details}')
+location_details.click()
+
+time.sleep(3)
+
+driver.save_screenshot('C:/Users/overk/Downloads/8_created_location.png')
+
+services_tab = driver.find_element(By.XPATH, f'{el.WebSidePages.services_tab}')
+services_tab.click()
+
+time.sleep(3)
+
+driver.save_screenshot('C:/Users/overk/Downloads/9_created_services.png')
+
+profile_selector = driver.find_element(By.XPATH, f'{el.WebSidePages.profile_selector}')
+profile_selector.click()
+
+time.sleep(3)
+
+driver.save_screenshot('C:/Users/overk/Downloads/10_pa_created_account.png')
+
+# print browser console messages (not working for Firefox)
+for entry in driver.get_log('browser'):
+    print(entry)
 
 driver.quit()
