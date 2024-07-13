@@ -5,8 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
-import locators as el
-import testvalues as tv
+import _main
+import atestus as at
 
 service = Service()
 options = webdriver.ChromeOptions()
@@ -16,28 +16,28 @@ driver = webdriver.Chrome(service=service, options=options)
 #driver = webdriver.Firefox()
 driver.maximize_window()
 wait = WebDriverWait(driver, 10)
-driver.get(tv.Requests.devstage_pablo_url_domain + "/for-providers/claim")
+driver.get(at.Requests.devstage_pablo_url_domain + "/for-providers/claim")
 
 driver.implicitly_wait(3)
 
-busi_claim_button = driver.find_element(By.XPATH, f'{el.BusiMainPage.busi_claim_button}')
+busi_claim_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.busi_claim_button}')
 
 wait.until(expected_conditions.visibility_of((busi_claim_button)))
 
 busi_claim_button.click()
 time.sleep(2)
 
-outpatient_button = driver.find_element(By.XPATH, f'{el.BusiMainPage.outpatient_button}')
+outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
 outpatient_button.click()
 time.sleep(1)
 
-random_lvl2_subcat = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.BusiMainPage.lvl2_subcats)}')
+random_lvl2_subcat = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl2_subcats)}')
 random_lvl2_subcat.click()
 time.sleep(1)
 
-random_lvl3_type1 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type2 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type3 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.BusiMainPage.lvl3_typesOutp)}')
+random_lvl3_type1 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
+random_lvl3_type2 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
+random_lvl3_type3 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
 random_lvl3_type1.click()
 random_lvl3_type2.click()
 random_lvl3_type3.click()
@@ -46,41 +46,41 @@ time.sleep(3)
 
 driver.save_screenshot('C:/Users/overk/Downloads/1_selected_lvl3_types.png')
 
-continue_button1 = driver.find_element(By.XPATH, f'{el.BusiMainPage.continue_button1}')
+continue_button1 = driver.find_element(By.XPATH, f'{at.BusiMainPage.continue_button1}')
 continue_button1.click()
 time.sleep(2)
 
-continue_button2 = driver.find_element(By.XPATH, f'{el.BusiMainPage.continue_button2}')
+continue_button2 = driver.find_element(By.XPATH, f'{at.BusiMainPage.continue_button2}')
 continue_button2.click()
 time.sleep(2)
 
-search_input = driver.find_element(By.XPATH, f'{el.BusiMainPage.search_input}')
-search_input.send_keys(tv.Methods.randomizer(tv.General.practice_search))
+search_input = driver.find_element(By.XPATH, f'{at.BusiMainPage.search_input}')
+search_input.send_keys(at.Methods.randomizer(at.General.practice_search))
 time.sleep(2)
 
-random_prac = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.BusiMainPage.found_pracs)}')
+random_prac = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.found_pracs)}')
 random_prac.click()
 time.sleep(2)
 
 driver.save_screenshot('C:/Users/overk/Downloads/2_choose_your_practice.png')
 
-continue_button3 = driver.find_element(By.XPATH, f'{el.BusiMainPage.continue_button3}')
+continue_button3 = driver.find_element(By.XPATH, f'{at.BusiMainPage.continue_button3}')
 continue_button3.click()
 time.sleep(4)
 
-prac_name_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_name_input}')
-prac_ein_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_ein_input}')
-prac_address_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_address_input}')
-prac_phone_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_phone_input}')
-prac_email_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_email_input}')
-prac_fax_input = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.prac_fax_input}')
+prac_name_input = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.prac_name_input}')
+prac_ein_input = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.prac_ein_input}')
+prac_address_input = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.prac_address_input}')
+prac_phone_input = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.prac_phone_input}')
+prac_email_input = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.prac_email_input}')
+prac_fax_input = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.prac_fax_input}')
 
-prac_ein_input.send_keys(tv.Methods.randomizer(tv.General.diff_values))
+prac_ein_input.send_keys(at.Methods.randomizer(at.General.diff_values))
 prac_phone_input.send_keys(Keys.CONTROL, "a")
 prac_phone_input.send_keys(Keys.DELETE)
-prac_phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
-prac_email_input.send_keys(tv.Methods.randomizer(tv.General.practiceEmails))
-prac_fax_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+prac_phone_input.send_keys(at.Methods.randomizer(at.General.usPhoneNums))
+prac_email_input.send_keys(at.Methods.randomizer(at.General.practiceEmails))
+prac_fax_input.send_keys(at.Methods.randomizer(at.General.usPhoneNums))
 
 time.sleep(2)
 
@@ -93,15 +93,15 @@ print("Confirm Identity, prac fax entered: --", prac_fax_input.get_attribute("va
 
 driver.save_screenshot('C:/Users/overk/Downloads/3_confirm_identity_data.png')
 
-next_button1 = driver.find_element(By.XPATH, f'{el.ConfirmIdentityPage.next_button1}')
+next_button1 = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.next_button1}')
 next_button1.click()
 time.sleep(2)
 
-random_serv1 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.SelectServicesPage.services_list)}')
-random_serv2 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.SelectServicesPage.services_list)}')
-random_serv3 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.SelectServicesPage.services_list)}')
-random_serv4 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.SelectServicesPage.services_list)}')
-random_serv5 = driver.find_element(By.XPATH, f'{tv.Methods.randomizer(el.SelectServicesPage.services_list)}')
+random_serv1 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.SelectServicesPage.services_list)}')
+random_serv2 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.SelectServicesPage.services_list)}')
+random_serv3 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.SelectServicesPage.services_list)}')
+random_serv4 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.SelectServicesPage.services_list)}')
+random_serv5 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.SelectServicesPage.services_list)}')
 random_serv1.click()
 random_serv2.click()
 random_serv3.click()
@@ -112,30 +112,30 @@ time.sleep(2)
 
 driver.save_screenshot('C:/Users/overk/Downloads/4_selected_services.png')
 
-next_button2 = driver.find_element(By.XPATH, f'{el.SelectServicesPage.next_button2}')
+next_button2 = driver.find_element(By.XPATH, f'{at.SelectServicesPage.next_button2}')
 next_button2.click()
 time.sleep(2)
 
-continue_button4 = driver.find_element(By.XPATH, f'{el.SelectServicesPage.continue_button4}')
+continue_button4 = driver.find_element(By.XPATH, f'{at.SelectServicesPage.continue_button4}')
 continue_button4.click()
 time.sleep(2)
 
 #verify flow finished, not account creation starts
 
-create_acc_button = driver.find_element(By.XPATH, f'{el.CreateAccountPage.create_acc_button}')
+create_acc_button = driver.find_element(By.XPATH, f'{at.CreateAccountPage.create_acc_button}')
 create_acc_button.click()
 
 time.sleep(2)
 
-pa_firstName_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_firstName_input}')
-pa_lastName_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_lastName_input}')
-pa_dob_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_dob_input}')
-pa_phone_input = driver.find_element(By.XPATH, f'{el.CreateAccountPage.pa_phone_input}')
+pa_firstName_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_firstName_input}')
+pa_lastName_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_lastName_input}')
+pa_dob_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_dob_input}')
+pa_phone_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_phone_input}')
 
-pa_firstName_input.send_keys(tv.Methods.randomizer(tv.General.firstNames))
-pa_lastName_input.send_keys(tv.Methods.randomizer(tv.General.lastNames))
-pa_dob_input.send_keys(tv.Methods.randomizer(tv.General.datesOfBirth))
-pa_phone_input.send_keys(tv.Methods.randomizer(tv.General.usPhoneNums))
+pa_firstName_input.send_keys(at.Methods.randomizer(at.General.firstNames))
+pa_lastName_input.send_keys(at.Methods.randomizer(at.General.lastNames))
+pa_dob_input.send_keys(at.Methods.randomizer(at.General.datesOfBirth))
+pa_phone_input.send_keys(at.Methods.randomizer(at.General.usPhoneNums))
 
 time.sleep(4)
 
@@ -146,14 +146,14 @@ print("Create Account, pa phone entered: --", pa_phone_input.get_attribute("valu
 
 driver.save_screenshot('C:/Users/overk/Downloads/5_pa_personal_data.png')
 
-next_button3 = driver.find_element(By.XPATH, f'{el.CreateAccountPage.next_button3}')
+next_button3 = driver.find_element(By.XPATH, f'{at.CreateAccountPage.next_button3}')
 next_button3.click()
 time.sleep(2)
 
-pa_email_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.pa_email_input}')
-pa_password_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.pa_password_input}')
+pa_email_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.pa_email_input}')
+pa_password_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.pa_password_input}')
 
-pa_email_input.send_keys(tv.General.unique_email)
+pa_email_input.send_keys(at.General.unique_email)
 
 pa_password_input.send_keys("Qwerty123!")
 
@@ -164,11 +164,11 @@ print("Set Email/Password, pa password entered: --", pa_password_input.get_attri
 
 driver.save_screenshot('C:/Users/overk/Downloads/6_pa_email-password.png')
 
-create_button = driver.find_element(By.XPATH, f'{el.SetPasswordPage.create_button}')
+create_button = driver.find_element(By.XPATH, f'{at.SetPasswordPage.create_button}')
 create_button.click()
 time.sleep(1)
 
-verify_code_input = driver.find_element(By.XPATH, f'{el.SetPasswordPage.verify_code_input}')
+verify_code_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.verify_code_input}')
 verify_code_input.send_keys("010101")
 time.sleep(2)
 
@@ -176,50 +176,50 @@ time.sleep(2)
 for entry in driver.get_log('browser'):
     print(entry)
 
-login_button = driver.find_element(By.XPATH, f'{el.SetPasswordPage.login_button}')
+login_button = driver.find_element(By.XPATH, f'{at.SetPasswordPage.login_button}')
 login_button.click()
 
 time.sleep(5)
 
 #now we are on web side
 
-accept_button = driver.find_element(By.XPATH, f'{el.WebSidePages.accept_button}')
+accept_button = driver.find_element(By.XPATH, f'{at.WebSidePages.accept_button}')
 accept_button.click()
 time.sleep(8)
 
-continue_button5 = driver.find_element(By.XPATH, f'{el.WebSidePages.continue_button5}')
+continue_button5 = driver.find_element(By.XPATH, f'{at.WebSidePages.continue_button5}')
 continue_button5.click()
 time.sleep(2)
 
-skip_button = driver.find_element(By.XPATH, f'{el.WebSidePages.skip_button}')
+skip_button = driver.find_element(By.XPATH, f'{at.WebSidePages.skip_button}')
 skip_button.click()
 time.sleep(2)
 
-pm_selector = driver.find_element(By.XPATH, f'{el.WebSidePages.pm_selector}')
+pm_selector = driver.find_element(By.XPATH, f'{at.WebSidePages.pm_selector}')
 pm_selector.click()
 
-locations_selector = driver.find_element(By.XPATH, f'{el.WebSidePages.locations_selector}')
+locations_selector = driver.find_element(By.XPATH, f'{at.WebSidePages.locations_selector}')
 locations_selector.click()
 
 time.sleep(3)
 
 driver.save_screenshot('C:/Users/overk/Downloads/7_created_practice.png')
 
-location_details = driver.find_element(By.XPATH, f'{el.WebSidePages.location_details}')
+location_details = driver.find_element(By.XPATH, f'{at.WebSidePages.location_details}')
 location_details.click()
 
 time.sleep(3)
 
 driver.save_screenshot('C:/Users/overk/Downloads/8_created_location.png')
 
-services_tab = driver.find_element(By.XPATH, f'{el.WebSidePages.services_tab}')
+services_tab = driver.find_element(By.XPATH, f'{at.WebSidePages.services_tab}')
 services_tab.click()
 
 time.sleep(3)
 
 driver.save_screenshot('C:/Users/overk/Downloads/9_created_services.png')
 
-profile_selector = driver.find_element(By.XPATH, f'{el.WebSidePages.profile_selector}')
+profile_selector = driver.find_element(By.XPATH, f'{at.WebSidePages.profile_selector}')
 profile_selector.click()
 
 time.sleep(3)
