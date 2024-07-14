@@ -119,17 +119,82 @@ def test_select_services(setupTeardown):
 #verify flow finished, not account creation starts
 
 def test_create_account(setupTeardown):
-    pass
+    create_acc_button = driver.find_element(By.XPATH, f'{at.CreateAccountPage.create_acc_button}')
+    create_acc_button.click()
+    time.sleep(2)
+    pa_firstName_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_firstName_input}')
+    pa_lastName_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_lastName_input}')
+    pa_dob_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_dob_input}')
+    pa_phone_input = driver.find_element(By.XPATH, f'{at.CreateAccountPage.pa_phone_input}')
+    pa_firstName_input.send_keys(at.Methods.randomizer(at.General.firstNames))
+    pa_lastName_input.send_keys(at.Methods.randomizer(at.General.lastNames))
+    pa_dob_input.send_keys(at.Methods.randomizer(at.General.datesOfBirth))
+    pa_phone_input.send_keys(at.Methods.randomizer(at.General.usPhoneNums))
+    time.sleep(4)
+    print("Create Account, pa firstName entered: --", pa_firstName_input.get_attribute("value"))
+    print("Create Account, pa lastName entered: --", pa_lastName_input.get_attribute("value"))
+    print("Create Account, pa DOB entered: --", pa_dob_input.get_attribute("value"))
+    print("Create Account, pa phone entered: --", pa_phone_input.get_attribute("value"))
+    driver.save_screenshot('C:/Users/overk/Downloads/5_pa_personal_data.png')
+    next_button3 = driver.find_element(By.XPATH, f'{at.CreateAccountPage.next_button3}')
+    next_button3.click()
+    time.sleep(2)
+    pa_email_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.pa_email_input}')
+    pa_password_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.pa_password_input}')
+    pa_email_input.send_keys(at.General.unique_email)
+    pa_password_input.send_keys("Qwerty123!")
+    time.sleep(1)
+    print("Set Email/Password, pa email entered: --", pa_email_input.get_attribute("value"))
+    print("Set Email/Password, pa password entered: --", pa_password_input.get_attribute("value"))
+    #driver.save_screenshot('C:/Users/overk/Downloads/6_pa_email-password.png')
 
 def test_set_password(setupTeardown):
-    pass
+    create_button = driver.find_element(By.XPATH, f'{at.SetPasswordPage.create_button}')
+    create_button.click()
+    time.sleep(1)
+    verify_code_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.verify_code_input}')
+    verify_code_input.send_keys("010101")
+    time.sleep(2)
+    # print browser console messages (not working for Firefox)
+    for entry in driver.get_log('browser'):
+        print(entry)
+    login_button = driver.find_element(By.XPATH, f'{at.SetPasswordPage.login_button}')
+    login_button.click()
+    time.sleep(5)
 
 #now we are on web side
 
 def test_webside_checks(setupTeardown):
-    pass
-
-
+    accept_button = driver.find_element(By.XPATH, f'{at.WebSidePages.accept_button}')
+    accept_button.click()
+    time.sleep(8)
+    continue_button5 = driver.find_element(By.XPATH, f'{at.WebSidePages.continue_button5}')
+    continue_button5.click()
+    time.sleep(2)
+    skip_button = driver.find_element(By.XPATH, f'{at.WebSidePages.skip_button}')
+    skip_button.click()
+    time.sleep(2)
+    pm_selector = driver.find_element(By.XPATH, f'{at.WebSidePages.pm_selector}')
+    pm_selector.click()
+    locations_selector = driver.find_element(By.XPATH, f'{at.WebSidePages.locations_selector}')
+    locations_selector.click()
+    time.sleep(3)
+    #driver.save_screenshot('C:/Users/overk/Downloads/7_created_practice.png')
+    location_details = driver.find_element(By.XPATH, f'{at.WebSidePages.location_details}')
+    location_details.click()
+    time.sleep(3)
+    #driver.save_screenshot('C:/Users/overk/Downloads/8_created_location.png')
+    services_tab = driver.find_element(By.XPATH, f'{at.WebSidePages.services_tab}')
+    services_tab.click()
+    time.sleep(3)
+    #driver.save_screenshot('C:/Users/overk/Downloads/9_created_services.png')
+    profile_selector = driver.find_element(By.XPATH, f'{at.WebSidePages.profile_selector}')
+    profile_selector.click()
+    time.sleep(3)
+    #driver.save_screenshot('C:/Users/overk/Downloads/10_pa_created_account.png')
+    # print browser console messages (not working for Firefox)
+    for entry in driver.get_log('browser'):
+        print(entry)
 
 # cd NavierrePablo/testings
 # pytest -s -vv test_claimPractice_inp.py
