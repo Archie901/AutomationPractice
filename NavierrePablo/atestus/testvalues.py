@@ -25,9 +25,9 @@ class Paths:
 
 class General:
 
-    npi = "1922294123"
+    npi = "1598728552"
 
-    unique_email = ("mosterlingu@mailinator.com")
+    unique_email = ("mode21@mailinator.com")
     
     practice_search = ("Medical Lab", "Clinical Facility", "Rehab Center", "Great Place", "Pharmacy", "Store Goods", "Best Shelter")
 

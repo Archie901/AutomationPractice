@@ -94,7 +94,7 @@ driver.save_screenshot(f'{at.Paths.screenpath_claimPractice1}/3_confirm_identity
 driver.save_screenshot(f'{at.Paths.screenpath_claimPractice2}/3_confirm_identity_data.png')
 next_button1 = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.next_button1}')
 next_button1.click()
-time.sleep(2)
+time.sleep(3)
 
 #selecting services for a practice
 
