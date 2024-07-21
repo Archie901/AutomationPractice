@@ -19,7 +19,7 @@ wait = WebDriverWait(driver, 10)
 
 #opening browser > entering npi and checking found provider
 
-driver.get(at.Requests.devstage_pablo_url_domain + "/for-providers/claim")
+driver.get(at.Requests.devstage_pablo_weburl + "/for-providers/claim")
 driver.implicitly_wait(3)
 prov_claim_button = driver.find_element(By.XPATH, f'{at.ProvMainPage.prov_claim_button}')
 wait.until(expected_conditions.visibility_of((prov_claim_button)))

@@ -8,10 +8,10 @@ class Methods:
 
 class Requests:
 
-    devstage_pablo_url_domain = "https://pablo-dev.vercel.app"
-    prod_pablo_url_domain = "https://www.navierre.com"
-    dev_pablo_domain = "https://api-synergyhealth-dev.osdb.io"
-    stage_pablo_domain = "https://api-synergyhealth-stage.osdb.io"
+    devstage_pablo_weburl = "https://pablo-dev.vercel.app"
+    prod_pablo_weburl = "https://www.navierre.com"
+    dev_pablo_api = "https://api-synergyhealth-dev.osdb.io"
+    stage_pablo_api = "https://api-synergyhealth-stage.osdb.io"
     headers = {"Content-Type": "application/json",
                "Accept-Encoding": "charset=utf-8",
                "Connection": "keep-alive"}

@@ -19,31 +19,25 @@ wait = WebDriverWait(driver, 10)
 
 #opening browser > clicking claim > clicking required lvl 1 option
 
-driver.get(at.Requests.devstage_pablo_url_domain + "/for-providers/claim")
+driver.get(at.Requests.devstage_pablo_weburl + "/for-providers/claim")
 driver.implicitly_wait(3)
 busi_claim_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.busi_claim_button}')
 wait.until(expected_conditions.visibility_of((busi_claim_button)))
 busi_claim_button.click()
 time.sleep(2)
-outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
-outpatient_button.click()
-time.sleep(1)
-
-#selection of lvl 2 subcategory
-
-random_lvl2_subcat = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl2_subcats)}')
-random_lvl2_subcat.click()
+inpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.inpatient_button}')
+inpatient_button.click()
 time.sleep(1)
 
 #selection of lvl 3 types
 
-random_lvl3_type1 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type2 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type3 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type4 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type5 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type6 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
-random_lvl3_type7 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesOutp)}')
+random_lvl3_type1 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesInp)}')
+random_lvl3_type2 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesInp)}')
+random_lvl3_type3 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesInp)}')
+random_lvl3_type4 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesInp)}')
+random_lvl3_type5 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesInp)}')
+random_lvl3_type6 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesInp)}')
+random_lvl3_type7 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.BusiMainPage.lvl3_typesInp)}')
 random_lvl3_type1.click()
 random_lvl3_type2.click()
 random_lvl3_type3.click()
@@ -100,7 +94,7 @@ driver.save_screenshot(f'{at.Paths.screenpath_claimPractice1}/3_confirm_identity
 driver.save_screenshot(f'{at.Paths.screenpath_claimPractice2}/3_confirm_identity_data.png')
 next_button1 = driver.find_element(By.XPATH, f'{at.ConfirmIdentityPage.next_button1}')
 next_button1.click()
-time.sleep(2)
+time.sleep(3)
 
 #selecting services for a practice
 
@@ -162,9 +156,6 @@ driver.save_screenshot(f'{at.Paths.screenpath_claimPractice2}/6_pa_email-passwor
 create_button = driver.find_element(By.XPATH, f'{at.SetPasswordPage.create_button}')
 create_button.click()
 time.sleep(1)
-# print browser console messages (not working for Firefox)
-for entry in driver.get_log('browser'):
-    print(entry)
 verify_code_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.verify_code_input}')
 verify_code_input.send_keys("010101")
 time.sleep(2)
