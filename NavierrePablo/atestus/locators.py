@@ -101,11 +101,26 @@ class ProvMainPage:
 
 class ProvServicesPage:
 
+    search_input = '//input[@placeholder="Search by Keywords"]'
     add_serv_button = '//button[contains(text(), "Add Services")]'
     serv_name_input = '//input[@id="service"]'
     desc_textarea = '//textarea[@id="description"]'
     save_button = '//button[contains(text(), "Save")]'
     back_button = '//button[contains(text(), "Back")]'
+    add_more_button = '//button[contains(text(), "Add More")]'
+    more_service1 = '//div[contains(@class, "MuiButtonBase-root")][1]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service2 = '//div[contains(@class, "MuiButtonBase-root")][2]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service3 = '//div[contains(@class, "MuiButtonBase-root")][3]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service4 = '//div[contains(@class, "MuiButtonBase-root")][4]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service5 = '//div[contains(@class, "MuiButtonBase-root")][5]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service6 = '//div[contains(@class, "MuiButtonBase-root")][6]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service7 = '//div[contains(@class, "MuiButtonBase-root")][7]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service8 = '//div[contains(@class, "MuiButtonBase-root")][8]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_service9 = '//div[contains(@class, "MuiButtonBase-root")][9]//div[contains(@class, "MuiListItemIcon-root")]//span//input'
+    more_services_list = []
+    more_services_list.extend((more_service1, more_service2, more_service3, more_service4, more_service5,
+                               more_service6, more_service7, more_service8, more_service9))
+    close_button = '//button[contains(text(), "Close")]'
     continue_button1 = '//a[contains(text(), "Continue")]'
 
 class LocInsurPages:
@@ -130,25 +145,26 @@ class VerifyIdentityPage:
     prov_dob_input = '//input[@name="dateOfBirth"]'
     next_button1 = '//button[contains(text(), "Next")]'
 
-class CreatePasswordPage:
-
-    prov_password_input = '//input[@name="password"]'
-    prov_password_confirm = '//input[@name="passwordConfirmation"]'
-    next_button2 = '//button[contains(text(), "Next")]'
-    verify_code_input = '//input[@autocomplete="one-time-code"]'
-
 class WorkInfoPage:
 
     prac_input = '//input[@id="practice-name"]'
     prac_email = '//input[@id="practice-email"]'
-    next_button3 = '//button[contains(text(), "Next")]'
+    next_button2 = '//button[contains(text(), "Next")]'
     login_button = '//a[contains(text(), "Log In")]'
+
+class CreatePasswordPage:
+
+    prov_password_input = '//input[@name="password"]'
+    prov_password_confirm = '//input[@name="passwordConfirmation"]'
+    next_button3 = '//button[contains(text(), "Next")]'
+    verify_code_input = '//input[@autocomplete="one-time-code"]'
 
 class WebProvPages:
 
     accept_button = '//button[contains(text(), "I Accept")]'
     x_button = '//h2/button[contains(@class, "MuiButtonBase-root")]'
+    prac_loc_selector = '//span[contains(text(), "Practice Locations")]'
     profile_selector = '//span[contains(text(), "My Profile")]'
     insurance_tab = '//button[contains(text(), "Insurance")]'
     locations_tab = '//button[contains(text(), "Locations")]'
-    location_open_tick = '//div[contains(@class, "_GroupWrapper_ur8f6_67")][2]//div[1]//div[contains(@class, "_LinkContent_1ubfi_31")]//button'
+    location_open_tick = '//div[contains(@class, "_GroupWrapper_ur8f6_67")][2]//div[1]//div[contains(@class, "_LinkContent_1ubfi_31")]//button'    

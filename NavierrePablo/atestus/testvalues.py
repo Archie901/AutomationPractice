@@ -15,12 +15,19 @@ class Requests:
     headers = {"Content-Type": "application/json",
                "Accept-Encoding": "charset=utf-8",
                "Connection": "keep-alive"}
+    
+class Paths:
+
+    screenpath_claimProvider1 = 'C:/Users/overk/Downloads/ClaimProvider'
+    screenpath_claimPractice1 = 'C:/Users/overk/Downloads/ClaimPractice'
+    screenpath_claimProvider2 = 'C:/Users/Archie-Lenovo/Downloads/ClaimProvider'
+    screenpath_claimPractice2 = 'C:/Users/Archie-Lenovo/Downloads/ClaimPractice'
 
 class General:
 
-    npi = "1962914085"
+    npi = "1497946305"
 
-    unique_email = ("mumerokio@mailinator.com")
+    unique_email = ("visas23232@mailinator.com")
     
     practice_search = ("Medical Lab", "Clinical Facility", "Rehab Center", "Great Place", "Pharmacy", "Store Goods", "Best Shelter")
 
