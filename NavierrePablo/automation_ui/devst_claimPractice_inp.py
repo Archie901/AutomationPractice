@@ -19,7 +19,7 @@ wait = WebDriverWait(driver, 10)
 
 #opening browser > clicking claim > clicking required lvl 1 option
 
-driver.get(at.Requests.devstage_pablo_url_domain + "/for-providers/claim")
+driver.get(at.Requests.devstage_pablo_weburl + "/for-providers/claim")
 driver.implicitly_wait(3)
 busi_claim_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.busi_claim_button}')
 wait.until(expected_conditions.visibility_of((busi_claim_button)))
