@@ -25,8 +25,16 @@ busi_claim_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.busi_claim_
 wait.until(expected_conditions.visibility_of((busi_claim_button)))
 busi_claim_button.click()
 time.sleep(2)
-outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
-outpatient_button.click()
+
+try:
+    npi_input = driver.find_element(By.XPATH, f'{at.ProvMainPage.npi_input}')
+    if npi_input.is_displayed:
+        npi_input.send_keys(at.General.npi)
+except:
+    outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
+    if outpatient_button.is_displayed:
+        outpatient_button.click()
+
 time.sleep(1)
 
 #selection of lvl 2 subcategory
@@ -161,7 +169,7 @@ driver.save_screenshot(f'{at.Paths.screenpath_claimPractice1}/6_pa_email-passwor
 driver.save_screenshot(f'{at.Paths.screenpath_claimPractice2}/6_pa_email-password.png')
 create_button = driver.find_element(By.XPATH, f'{at.SetPasswordPage.create_button}')
 create_button.click()
-time.sleep(1)
+time.sleep(2)
 # print browser console messages (not working for Firefox)
 for entry in driver.get_log('browser'):
     print(entry)

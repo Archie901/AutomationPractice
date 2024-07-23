@@ -151,7 +151,10 @@ def test_create_account(setupTeardown):
 def test_set_password(setupTeardown):
     create_button = driver.find_element(By.XPATH, f'{at.SetPasswordPage.create_button}')
     create_button.click()
-    time.sleep(1)
+    time.sleep(2)
+    # print browser console messages (not working for Firefox)
+    for entry in driver.get_log('browser'):
+        print(entry)
     verify_code_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.verify_code_input}')
     verify_code_input.send_keys("010101")
     time.sleep(2)

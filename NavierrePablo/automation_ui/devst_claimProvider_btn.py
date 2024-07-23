@@ -43,8 +43,16 @@ time.sleep(4)
 search_input = driver.find_element(By.XPATH, f'{at.ProvServicesPage.search_input}')
 search_input.send_keys(at.Methods.randomizer(at.General.diff_values))
 time.sleep(2)
-add_more_button = driver.find_element(By.XPATH, f'{at.ProvServicesPage.add_more_button}')
-add_more_button.click()
+
+try:
+    outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
+    if outpatient_button.is_displayed:
+        outpatient_button.click()
+except:
+    add_more_button = driver.find_element(By.XPATH, f'{at.ProvServicesPage.add_more_button}')
+    if add_more_button.is_displayed:
+        add_more_button.click()
+
 time.sleep(2)
 random_more_service1 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.ProvServicesPage.more_services_list)}')
 random_more_service2 = driver.find_element(By.XPATH, f'{at.Methods.randomizer(at.ProvServicesPage.more_services_list)}')
