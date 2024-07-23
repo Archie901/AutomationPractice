@@ -25,8 +25,16 @@ busi_claim_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.busi_claim_
 wait.until(expected_conditions.visibility_of((busi_claim_button)))
 busi_claim_button.click()
 time.sleep(2)
-outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
-outpatient_button.click()
+
+try:
+    npi_input = driver.find_element(By.XPATH, f'{at.ProvMainPage.npi_input}')
+    if npi_input.is_displayed:
+        npi_input.send_keys(at.General.npi)
+except:
+    outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
+    if outpatient_button.is_displayed:
+        outpatient_button.click()
+
 time.sleep(1)
 
 #selection of lvl 2 subcategory
@@ -155,7 +163,7 @@ pa_password_input = driver.find_element(By.XPATH, f'{at.SetPasswordPage.pa_passw
 pa_email_input.send_keys(at.General.unique_email)
 pa_password_input.send_keys("Qwerty123!")
 time.sleep(1)
-print("Set Email/Password, pa email entered: --", pa_email_input.get_attribute("valuvlee"))
+print("Set Email/Password, pa email entered: --", pa_email_input.get_attribute("value"))
 print("Set Email/Password, pa password entered: --", pa_password_input.get_attribute("value"))
 driver.save_screenshot(f'{at.Paths.screenpath_claimPractice1}/6_pa_email-password.png')
 driver.save_screenshot(f'{at.Paths.screenpath_claimPractice2}/6_pa_email-password.png')

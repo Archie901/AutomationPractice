@@ -25,8 +25,16 @@ busi_claim_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.busi_claim_
 wait.until(expected_conditions.visibility_of((busi_claim_button)))
 busi_claim_button.click()
 time.sleep(2)
-inpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.inpatient_button}')
-inpatient_button.click()
+
+try:
+    npi_input = driver.find_element(By.XPATH, f'{at.ProvMainPage.npi_input}')
+    if npi_input.is_displayed:
+        npi_input.send_keys(at.General.npi)
+except:
+    inpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.inpatient_button}')
+    if inpatient_button.is_displayed:
+        inpatient_button.click()
+
 time.sleep(1)
 
 #selection of lvl 3 types
