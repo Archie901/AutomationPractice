@@ -40,17 +40,16 @@ time.sleep(4)
 
 #selection of services
 
-search_input = driver.find_element(By.XPATH, f'{at.ProvServicesPage.search_input}')
-search_input.send_keys(at.Methods.randomizer(at.General.diff_values))
-time.sleep(2)
-
 try:
-    outpatient_button = driver.find_element(By.XPATH, f'{at.BusiMainPage.outpatient_button}')
-    if outpatient_button.is_displayed:
-        outpatient_button.click()
+    add_serv_button = driver.find_element(By.XPATH, f'{at.ProvServicesPage.add_serv_button}')
+    if add_serv_button.is_displayed:
+        add_serv_button.click()
 except:
     add_more_button = driver.find_element(By.XPATH, f'{at.ProvServicesPage.add_more_button}')
     if add_more_button.is_displayed:
+        search_input = driver.find_element(By.XPATH, f'{at.ProvServicesPage.search_input}')
+        search_input.send_keys(at.Methods.randomizer(at.General.diff_values))
+        time.sleep(2)
         add_more_button.click()
 
 time.sleep(2)
@@ -73,9 +72,10 @@ random_more_service7.click()
 random_more_service8.click()
 random_more_service9.click()
 time.sleep(2)
-close_button = driver.find_element(By.XPATH, f'{at.ProvServicesPage.close_button}')
-close_button.click()
+cancel_button = driver.find_element(By.XPATH, f'{at.ProvServicesPage.cancel_button}')
+cancel_button.click()
 time.sleep(1)
+search_input = driver.find_element(By.XPATH, f'{at.ProvServicesPage.search_input}')
 search_input.send_keys(Keys.CONTROL, "a")
 search_input.send_keys(Keys.DELETE)
 time.sleep(1)
@@ -217,6 +217,14 @@ locations_tab.click()
 time.sleep(5)
 driver.save_screenshot(f'{at.Paths.screenpath_claimProvider1}/11_created_locations.png')
 driver.save_screenshot(f'{at.Paths.screenpath_claimProvider2}/11_created_locations.png')
+location1_open_tick = driver.find_element(By.XPATH, f'{at.WebProvPages.location1_open_tick}')
+location1_open_tick.click()
+time.sleep(1)
+loc1_serv_selector = driver.find_element(By.XPATH, f'{at.WebProvPages.loc1_serv_selector}')
+loc1_serv_selector.click()
+time.sleep(3)
+driver.save_screenshot(f'{at.Paths.screenpath_claimProvider1}/12_created_services.png')
+driver.save_screenshot(f'{at.Paths.screenpath_claimProvider2}/12_created_services.png')
 # print browser console messages (not working for Firefox)
 for entry in driver.get_log('browser'):
     print(entry)

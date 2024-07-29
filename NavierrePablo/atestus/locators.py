@@ -120,7 +120,7 @@ class ProvServicesPage:
     more_services_list = []
     more_services_list.extend((more_service1, more_service2, more_service3, more_service4, more_service5,
                                more_service6, more_service7, more_service8, more_service9))
-    close_button = '//button[contains(text(), "Close")]'
+    cancel_button = '//button[contains(text(), "Cancel")]'
     continue_button1 = '//a[contains(text(), "Continue")]'
 
 class LocInsurPages:
@@ -167,4 +167,5 @@ class WebProvPages:
     profile_selector = '//span[contains(text(), "My Profile")]'
     insurance_tab = '//button[contains(text(), "Insurance")]'
     locations_tab = '//button[contains(text(), "Locations")]'
-    location_open_tick = '//div[contains(@class, "_GroupWrapper_ur8f6_67")][2]//div[1]//div[contains(@class, "_LinkContent_1ubfi_31")]//button'    
+    location1_open_tick = '//div[contains(@class, "_GroupWrapper_ur8f6_67")][2]//div[1]//div[contains(@class, "_LinkContent_1ubfi_31")]//button'
+    loc1_serv_selector = '//div[contains(@class, "_GroupWrapper_ur8f6_67")]//div[2]//div//div//div[2]//span[contains(text(), "Services")]'
